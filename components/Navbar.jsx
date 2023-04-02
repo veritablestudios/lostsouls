@@ -19,6 +19,7 @@ const MenuItems = ({ isMobile, active, setActive }) => {
         return "/";
     }
   };
+
   return (
     <ul
       className={`list-none flexCenter flex-row ${
