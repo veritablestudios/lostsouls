@@ -4,10 +4,15 @@ import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
-import { Button } from "../components";
+import { Button, Input } from "../components";
 import images from "../assets";
 const CreateNFT = () => {
   const [fileUrl, setFileUrl] = useState(null);
+  const [formInput, setFormInput] = useState({
+    name: "",
+    description: "",
+    price: "",
+  });
   const { theme } = useTheme();
   const onDrop = useCallback(() => {
     //upload file to IPFS
@@ -32,6 +37,7 @@ const CreateNFT = () => {
       `,
     [isDragActive, isDragAccept, isDragReject]
   );
+  console.log(formInput);
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-3/5 md:w-full">
@@ -39,9 +45,9 @@ const CreateNFT = () => {
           Create new NFT
         </h1>
         <div className="mt-16">
-          <h1 className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
+          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
             Upload File
-          </h1>
+          </p>
           <div className="mt-4">
             <div {...getRootProps()} className={fileStyle}>
               <input {...getInputProps()} />
@@ -75,6 +81,37 @@ const CreateNFT = () => {
               </aside>
             )}
           </div>
+        </div>
+        <Input
+          inputType="input"
+          title="Name"
+          placeholder="NFT Name"
+          handleClick={(e) =>
+            setFormInput({ ...formInput, name: e.target.value })
+          }
+        />
+        <Input
+          inputType="textarea"
+          title="Description"
+          placeholder="NFT Description"
+          handleClick={(e) =>
+            setFormInput({ ...formInput, description: e.target.value })
+          }
+        />
+        <Input
+          inputType="number"
+          title="Price"
+          placeholder="NFT Price"
+          handleClick={(e) =>
+            setFormInput({ ...formInput, price: e.target.value })
+          }
+        />
+        <div className="mt-7 w-full flex justify-end">
+          <Button
+            btnName="Create NFT"
+            className="rounded-xl"
+            handleClick={() => {}}
+          />
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@
     "web3modal": "1.9.5"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "autoprefixer": "10.4.2",
     "postcss": "8.4.7",
     "tailwindcss": "3.0.23"
