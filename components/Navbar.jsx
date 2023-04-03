@@ -68,7 +68,6 @@ const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState("Explore NFTs");
   const [isOpen, setIsOpen] = useState(false);
-  
 
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
@@ -127,7 +126,7 @@ const Navbar = () => {
             onClick={() => {
               setIsOpen(false);
             }}
-            className={theme === "light" && "filter invert"}
+            className={theme === "light" ? "filter invert" : undefined}
           />
         ) : (
           <Image
@@ -139,17 +138,13 @@ const Navbar = () => {
             onClick={() => {
               setIsOpen(true);
             }}
-            className={theme === "light" && "filter invert"}
+            className={theme === "light" ? "filter invert" : undefined}
           />
         )}
         {isOpen && (
           <div className="fixed inset-0 top-65 dark:bg-nft-dark bg-white z-10 nav-h flex justify-between flex-col">
             <div className="flex-1 p-4">
-              <MenuItems
-                isMobile
-                active={active}
-                setActive={setActive}
-              />
+              <MenuItems isMobile active={active} setActive={setActive} />
             </div>
             <div className="p-4 border-t dark:border-nft-black-1 border-nft-gray-1">
               <ButtonGroup setActive={setActive} router={router} />
