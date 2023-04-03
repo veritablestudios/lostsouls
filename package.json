@@ -24,9 +24,21 @@
     "web3modal": "1.9.5"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "@types/mocha": "^10.0.1",
     "autoprefixer": "10.4.2",
+    "chai": "^4.3.7",
+    "hardhat-gas-reporter": "^1.0.9",
     "postcss": "8.4.7",
-    "tailwindcss": "3.0.23"
+    "solidity-coverage": "^0.8.2",
+    "tailwindcss": "3.0.23",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^5.0.3"
   }
 }
