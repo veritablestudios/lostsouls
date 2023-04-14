@@ -123,9 +123,7 @@ const Navbar = () => {
             objectFit="contain"
             width={20}
             height={20}
-            onClick={() => {
-              setIsOpen(false);
-            }}
+            onClick={() => setIsOpen(!isOpen)}
             className={theme === "light" ? "filter invert" : undefined}
           />
         ) : (
@@ -135,9 +133,7 @@ const Navbar = () => {
             objectFit="contain"
             width={25}
             height={25}
-            onClick={() => {
-              setIsOpen(true);
-            }}
+            onClick={() => setIsOpen(!isOpen)}
             className={theme === "light" ? "filter invert" : undefined}
           />
         )}

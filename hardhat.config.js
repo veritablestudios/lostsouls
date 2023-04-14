@@ -1,6 +1,13 @@
-require("@nomicfoundation/hardhat-toolbox");
+const fs = require("fs");
+require("@nomiclabs/hardhat-waffle");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+const privateKey = fs.readFileSync(".secret").toString().trim();
+
 module.exports = {
-  solidity: "0.8.18",
+  networks: {
+    hardhat: {
+      chainId: 1337,
+    },
+  },
+  solidity: "0.8.4",
 };
