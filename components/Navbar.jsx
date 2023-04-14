@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
+import { NFTContext } from "../context/NFTContext";
+
 import images from "../assets";
 import { Button } from ".";
 
@@ -44,8 +46,8 @@ const MenuItems = ({ active, setActive, isMobile }) => {
   );
 };
 const ButtonGroup = ({ setActive, router }) => {
-  const hasConnected = true;
-  return hasConnected ? (
+  const { connectWallet, currentAccount } = useContext(NFTContext);
+  return currentAccount ? (
     <Button
       btnName="Create"
       classStyles="mx-2 rounded-xl"
@@ -58,7 +60,7 @@ const ButtonGroup = ({ setActive, router }) => {
     <Button
       btnName="Connect"
       classStyles="mx-2 rounded-xl"
-      handleClick={() => {}}
+      handleClick={connectWallet}
     />
   );
 };
@@ -103,9 +105,9 @@ const Navbar = () => {
             htmlFor="checkbox"
             className="flexBetween w-8 h-4 bg-black rounded-2xl p-1 relative label"
           >
-            <i className="fas fa-sun" />
-            <i className="fas fa-moon" />
-            <div className="w-3 h-3 absolute bg-white rounded-full ball" />
+            <i className="fas fa-sun cursor-pointer" />
+            <i className="fas fa-moon cursor-pointer" />
+            <div className="w-3 h-3 absolute bg-white rounded-full ball cursor-pointer" />
           </label>
         </div>
         <div className="md:hidden flex">
