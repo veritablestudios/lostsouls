@@ -12,6 +12,7 @@ const ListedNFTs = () => {
       setIsLoading(false);
     });
   }, []);
+  
   if (isLoading) {
     return (
       <div className="flexStart min-h-screen">
@@ -19,6 +20,7 @@ const ListedNFTs = () => {
       </div>
     );
   }
+
   if (!isLoading && nfts.length === 0) {
     return (
       <div className="flexCenter sm:p-4 p-16 min-h-screen">
