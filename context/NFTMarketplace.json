@@ -64,7 +64,7 @@
         {
           "indexed": true,
           "internalType": "uint256",
-          "name": "tokeId",
+          "name": "tokenId",
           "type": "uint256"
         },
         {
@@ -202,7 +202,7 @@
           "components": [
             {
               "internalType": "uint256",
-              "name": "tokeId",
+              "name": "tokenId",
               "type": "uint256"
             },
             {
@@ -242,7 +242,7 @@
           "components": [
             {
               "internalType": "uint256",
-              "name": "tokeId",
+              "name": "tokenId",
               "type": "uint256"
             },
             {
@@ -282,7 +282,7 @@
           "components": [
             {
               "internalType": "uint256",
-              "name": "tokeId",
+              "name": "tokenId",
               "type": "uint256"
             },
             {

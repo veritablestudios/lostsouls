@@ -15,7 +15,8 @@ const CreateNFT = () => {
     price: "",
   });
   const { theme } = useTheme();
-  const { uploadToIPFS } = useContext(NFTContext);
+  const { uploadToIPFS, createNFT } = useContext(NFTContext);
+  const router = useRouter();
   const onDrop = useCallback(async (acceptedFile) => {
     const url = await uploadToIPFS(acceptedFile[0]);
     console.log({ url });
@@ -57,7 +58,7 @@ const CreateNFT = () => {
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
-                  JPG, PNG, GIF, SVG, WEBP. Max 5MB.
+                  JPG, PNG, JPEG, GIF, SVG, WEBP. Max 5MB.
                 </p>
                 <div className="my-12 w-full flex justify-center">
                   <Image
@@ -114,7 +115,7 @@ const CreateNFT = () => {
           <Button
             btnName="Create NFT"
             className="rounded-xl"
-            handleClick={() => {}}
+            handleClick={() => createNFT(formInput, fileUrl, router)}
           />
         </div>
       </div>

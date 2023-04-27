@@ -19,11 +19,13 @@ const client = ipfsHttpClient.create({
     authorization: auth,
   },
 });
+const fetchContract = (signerOrProvider) =>
+  new ethers.Contract(MarketAddress, MarketAddressABI, signerOrProvider);
 export const NFTContext = React.createContext();
 
 export const NFTProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
-  const nftCurrency = "MATIC";
+  const nftCurrency = "ETH";
   const checkIfWalletIsConnected = async () => {
     if (!window.ethereum) {
       return alert("Please install MetaMask first.");
@@ -70,10 +72,73 @@ export const NFTProvider = ({ children }) => {
       description,
       image: fileUrl,
     });
+    try {
+      const added = await client.add(data);
+      const url = `https://lostsouls.infura-ipfs.io/ipfs/${added.path}`;
+      await createSale(url, price);
+      router.push("/");
+    } catch (error) {
+      console.log("Error uploading file to IPFS: ", error);
+    }
+  };
+  const createSale = async (url, formInputPrice, isReselling, id) => {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    const price = ethers.utils.parseUnits(formInputPrice, "ether");
+
+    const contract = fetchContract(signer);
+    const listingPrice = await contract.getListingPrice();
+
+    const transaction = await contract.createToken(url, price, {
+      value: listingPrice.toString(),
+    });
+    await transaction.wait();
+  };
+
+  const fetchNFTs = async () => {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const contract = fetchContract(provider);
+    const data = await contract.fetchMarketItems();
+    console.log("data", data);
+    const items = await Promise.all(
+      data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
+        const tokenURI = await contract.tokenURI(tokenId);
+        console.log("tokenURI", tokenURI);
+        const {
+          data: { image, name, description },
+        } = await axios.get(tokenURI);
+        console.log("unformattedPrice", unformattedPrice);
+        const price = ethers.utils.parseUnits(
+          unformattedPrice.toString(),
+          "ether"
+        );
+        console.log("price", price);
+        return {
+          price,
+          tokenId: tokenId.toNumber(),
+          seller,
+          owner,
+          image,
+          name,
+          description,
+          tokenURI,
+        };
+      })
+    );
+    return items;
   };
   return (
     <NFTContext.Provider
-      value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS }}
+      value={{
+        nftCurrency,
+        connectWallet,
+        currentAccount,
+        uploadToIPFS,
+        createNFT,
+        fetchNFTs,
+      }}
     >
       {children}
     </NFTContext.Provider>
