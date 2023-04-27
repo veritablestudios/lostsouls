@@ -101,7 +101,6 @@ export const NFTProvider = ({ children }) => {
     const provider = new ethers.providers.JsonRpcProvider();
     const contract = fetchContract(provider);
     const data = await contract.fetchMarketItems();
-    console.log("data", data);
     const items = await Promise.all(
       data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
         const tokenURI = await contract.tokenURI(tokenId);
@@ -126,6 +125,47 @@ export const NFTProvider = ({ children }) => {
           tokenURI,
         };
       })
+      // npx hardhat run scripts/deploy.js --network localhost
+    );
+    return items;
+  };
+  const fetchMyNFTsOrListedNFTs = async (type) => {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+
+    const contract = fetchContract(signer);
+    const data =
+      type === "fetchItemsListed"
+        ? await contract.fetchItemsListed()
+        : await contract.fetchMyNFTs();
+
+    const items = await Promise.all(
+      data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
+        const tokenURI = await contract.tokenURI(tokenId);
+        console.log("tokenURI", tokenURI);
+        const {
+          data: { image, name, description },
+        } = await axios.get(tokenURI);
+        console.log("unformattedPrice", unformattedPrice);
+        const price = ethers.utils.formatUnits(
+          unformattedPrice.toString(),
+          "ether"
+        );
+        console.log("price is", price);
+        return {
+          price,
+          tokenId: tokenId.toNumber(),
+          seller,
+          owner,
+          image,
+          name,
+          description,
+          tokenURI,
+        };
+      })
+      // npx hardhat run scripts/deploy.js --network localhost
     );
     return items;
   };
@@ -138,6 +178,7 @@ export const NFTProvider = ({ children }) => {
         uploadToIPFS,
         createNFT,
         fetchNFTs,
+        fetchMyNFTsOrListedNFTs,
       }}
     >
       {children}
