@@ -31,7 +31,7 @@ const CreateNFT = () => {
   } = useDropzone({
     onDrop,
     accept: "image/*",
-    maxSize: 5242880,
+    maxSize: 10 * 1024 * 1024,
   });
   const fileStyle = useMemo(
     () =>
@@ -58,7 +58,7 @@ const CreateNFT = () => {
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
-                  JPG, PNG, JPEG, GIF, SVG, WEBP. Max 5MB.
+                  JPG, PNG, JPEG, GIF, SVG, WEBP. Max 10MB.
                 </p>
                 <div className="my-12 w-full flex justify-center">
                   <Image
