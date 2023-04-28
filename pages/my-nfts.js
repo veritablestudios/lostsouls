@@ -9,6 +9,13 @@ const MyNFTs = () => {
   const [nfts, setNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    fetchMyNFTsOrListedNFTs().then((items) => {
+      setNfts(items);
+      setIsLoading(false);
+    });
+  }, []);
+
   if (isLoading) {
     return (
       <div className="flexStart min-h-screen">
@@ -51,7 +58,7 @@ const MyNFTs = () => {
           </div>
           <div className="mt-3 w-full flex flex-wrap">
             {nfts.map((nft) => (
-              <NFTCard key={nft.tokenId} nft={nft} />
+              <NFTCard key={nft.tokenId} nft={nft} onProfilePage/>
             ))}
           </div>
         </div>
