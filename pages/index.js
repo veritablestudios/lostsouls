@@ -6,6 +6,7 @@ import Image from "next/image";
 import { NFTContext } from "../context/NFTContext";
 import images from "../assets";
 import { makeId } from "../utils/makeId";
+import { getTopCreators } from "../utils/getTopCreators";
 const Home = () => {
   const { fetchNFTs } = useContext(NFTContext);
   const [hideButtons, setHideButtons] = useState(false);
@@ -16,7 +17,6 @@ const Home = () => {
   useEffect(() => {
     fetchNFTs().then((items) => {
       setNfts(items);
-      console.log("items", items);
     });
   }, []);
 
@@ -46,7 +46,7 @@ const Home = () => {
       window.removeEventListener("resize", isScrollable);
     };
   });
-
+  const topCreators = getTopCreators(nfts);
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-4/5">

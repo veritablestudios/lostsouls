@@ -8,7 +8,6 @@ const ResellNFT = () => {
   const { createSale } = useContext(NFTContext);
   const router = useRouter();
   const { tokenId, tokenURI } = router.query;
-  console.log(tokenId, tokenURI);
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
