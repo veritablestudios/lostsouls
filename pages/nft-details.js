@@ -5,6 +5,7 @@ import { NFTContext } from "../context/NFTContext";
 import { Loader, NFTCard, Button, Modal } from "../components";
 import images from "../assets";
 import { shortenAddress } from "../utils/shortenAddress";
+import { getAvatar } from "../utils/getAvatar";
 
 const PaymentBodyCmp = ({ nft, nftCurrency }) => {
   return (
@@ -33,7 +34,8 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
         </div>
         <div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl">
-            {nft.price} <span className="font-semibold">{nftCurrency}</span>
+            {nftCurrency}
+            {nft.price}
           </p>
         </div>
       </div>
@@ -42,7 +44,8 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
           Total
         </p>
         <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl">
-          {nft.price} <span className="font-semibold">{nftCurrency}</span>
+          {nftCurrency}
+          {nft.price}
         </p>
       </div>
     </div>
@@ -88,6 +91,7 @@ const NFTDetails = () => {
       </div>
     );
   }
+  console.log("nft.seller", nft.seller);
   return (
     <div className="relative flex justify-center md:flex-col min-h-screen">
       <div className="relative flex-1 flexCenter sm:px-4 p-12 border-r md:border-r-0 md:border-b dark:border-nft-black-1 border-nft-gray-1">
@@ -114,9 +118,10 @@ const NFTDetails = () => {
           <div className="flex flex-row items-center mt-3">
             <div className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
               <Image
-                src={images.creator1}
+                src={getAvatar(nft.seller.toLowerCase())}
                 objectFit="cover"
                 className="rounded-full"
+                layout="fill"
               />
             </div>
             <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-semibold">
@@ -153,7 +158,7 @@ const NFTDetails = () => {
             />
           ) : (
             <Button
-              btnName={`Buy for ${nft.price} ${nftCurrency}`}
+              btnName={`Buy for ${nftCurrency}${nft.price}`}
               classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
               handleClick={() => setPaymentModal(true)}
             />

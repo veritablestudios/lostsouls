@@ -4,6 +4,8 @@ import { NFTContext } from "../context/NFTContext";
 import { Loader, NFTCard, Banner, SearchBar } from "../components";
 import images from "../assets";
 import { shortenAddress } from "../utils/shortenAddress";
+import { getAvatar } from "../utils/getAvatar";
+
 const MyNFTs = () => {
   const { fetchMyNFTsOrListedNFTs, currentAccount } = useContext(NFTContext);
   const [nfts, setNfts] = useState([]);
@@ -61,6 +63,8 @@ const MyNFTs = () => {
       setNfts(nftsCopy);
     }
   };
+  console.log("currentAccount", currentAccount);
+
   return (
     <div className="w-full flex justify-start items-center flex-col min-h-screen">
       <div className="w-full flexCenter flex-col">
@@ -70,11 +74,12 @@ const MyNFTs = () => {
           parentStyles="h-80 justify-center"
         />
         <div className="flexCenter flex-col -mt-20 z-0">
-          <div className="flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full">
+          <div className="relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full">
             <Image
-              src={images.creator1}
-              className="rounded-full object-cover"
+              src={getAvatar(currentAccount)}
+              layout="fill"
               objectFit="cover"
+              className="rounded-full"
             />
           </div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-2xl mt-6">
