@@ -84,7 +84,7 @@ const Footer = () => {
                   width={24}
                   height={24}
                   objectFit="contain"
-                  className={theme === "light" ? "filter invert" : undefined}
+                  className={theme === "light" ? "filter invert" : ""}
                 />
               </div>
             ))}

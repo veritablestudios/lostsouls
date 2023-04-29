@@ -4,7 +4,7 @@ const Banner = ({ parentStyles, name, childStyles }) => {
       className={`relative w-full flex items-center z-0 overflow-hidden nft-gradient ${parentStyles}`}
     >
       <p
-        className={`font-bold text-5xl font-poppins leading-70 ${childStyles}`}
+        className={`font-bold text-5xl font-poppins leading-70 text-white ${childStyles}`}
       >
         {name}
       </p>
