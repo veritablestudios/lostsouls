@@ -1,4 +1,3 @@
-const fs = require("fs");
 require("@nomiclabs/hardhat-waffle");
 
 const privateKey = process.env.NEXT_PUBLIC_METAMASK_PRIVATE_KEY;
