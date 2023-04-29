@@ -5,9 +5,19 @@ import Image from "next/image";
 
 import { NFTContext } from "../context/NFTContext";
 import images from "../assets";
-import { makeId } from "../utils/makeId";
 import { getTopCreators } from "../utils/getTopCreators";
 import { shortenAddress } from "../utils/shortenAddress";
+import { createAvatar } from "@dicebear/core";
+import { pixelArt } from "@dicebear/collection";
+const options = {}; // customize options here if needed
+const getAvatar = (seed) => {
+  const avatar = createAvatar(pixelArt, { seed, ...options });
+  const svgString = avatar.toString();
+  return `data:image/svg+xml;base64,${Buffer.from(svgString).toString(
+    "base64"
+  )}`;
+};
+
 const Home = () => {
   const { fetchNFTs } = useContext(NFTContext);
   const [hideButtons, setHideButtons] = useState(false);
@@ -90,7 +100,6 @@ const Home = () => {
     };
   });
   const topCreators = getTopCreators(nftsCopy);
-  console.log(topCreators);
   return (
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-full minmd:w-4/5">
@@ -129,7 +138,7 @@ const Home = () => {
                     <CreatorCard
                       key={creator.seller}
                       rank={i + 1}
-                      creatorImage={images[`creator${i + 1}`]}
+                      creatorImage={getAvatar(creator.seller)}
                       creatorName={shortenAddress(creator.seller)}
                       creatorEths={creator.sum}
                     />
