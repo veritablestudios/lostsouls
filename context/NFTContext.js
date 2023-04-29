@@ -5,8 +5,8 @@ import axios from "axios";
 const ipfsHttpClient = require("ipfs-http-client");
 import { MarketAddress, MarketAddressABI } from "./constants";
 
-const INFURA_ID = "2Ozh7HSv2hQLliso6mr9vRxZKir";
-const INFURA_SECRET_KEY = "3312cf18b201260d27b70514db45956d";
+const INFURA_ID = process.env.NEXT_PUBLIC_INFURA_ID;
+const INFURA_SECRET_KEY = process.env.NEXT_PUBLIC_INFURA_SECRET_KEY;
 
 const auth = `Basic ${Buffer.from(`${INFURA_ID}:${INFURA_SECRET_KEY}`).toString(
   "base64"
@@ -56,7 +56,7 @@ export const NFTProvider = ({ children }) => {
   const uploadToIPFS = async (file) => {
     try {
       const added = await client.add({ content: file });
-      const url = `https://lostsouls.infura-ipfs.io/ipfs/${added.path}`;
+      const url = `${process.env.NEXT_PUBLIC_INFURA_IPFS_URL}/${added.path}`;
       return url;
     } catch (error) {
       console.log("Error uploading file to IPFS: ", error);
@@ -75,7 +75,7 @@ export const NFTProvider = ({ children }) => {
     });
     try {
       const added = await client.add(data);
-      const url = `https://lostsouls.infura-ipfs.io/ipfs/${added.path}`;
+      const url = `${process.env.NEXT_PUBLIC_INFURA_IPFS_URL}/${added.path}`;
       await createSale(url, price);
       router.push("/");
     } catch (error) {
@@ -105,7 +105,9 @@ export const NFTProvider = ({ children }) => {
 
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider(
+      process.env.NEXT_PUBLIC_PROVIDER_URL
+    );
     const contract = fetchContract(provider);
     const data = await contract.fetchMarketItems();
     const items = await Promise.all(
