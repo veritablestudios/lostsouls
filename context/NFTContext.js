@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
-const ipfsHttpClient = require("ipfs-http-client");
+import { create as ipfsHttpClient } from "ipfs-http-client";
 import { MarketAddress, MarketAddressABI } from "./constants";
 
-const INFURA_ID = process.env.NEXT_PUBLIC_INFURA_ID;
-const INFURA_SECRET_KEY = process.env.NEXT_PUBLIC_INFURA_SECRET_KEY;
-
-const auth = `Basic ${Buffer.from(`${INFURA_ID}:${INFURA_SECRET_KEY}`).toString(
-  "base64"
-)}`;
-const client = ipfsHttpClient.create({
+const IPFS_API_KEY = process.env.NEXT_PUBLIC_IPFS_API_KEY;
+const IPFS_API_KEY_SECRET = process.env.NEXT_PUBLIC_IPFS_API_KEY_SECRET;
+const IPFS_DEDICATED_GATEWAY_SUBDOMAIN =
+  process.env.NEXT_PUBLIC_IPFS_DEDICATED_GATEWAY_SUBDOMAIN;
+const auth = `Basic ${Buffer.from(
+  `${IPFS_API_KEY}:${IPFS_API_KEY_SECRET}`
+).toString("base64")}`;
+const client = ipfsHttpClient({
   host: "ipfs.infura.io",
   port: 5001,
   protocol: "https",
@@ -56,7 +57,7 @@ export const NFTProvider = ({ children }) => {
   const uploadToIPFS = async (file) => {
     try {
       const added = await client.add({ content: file });
-      const url = `${process.env.NEXT_PUBLIC_INFURA_IPFS_URL}/${added.path}`;
+      const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
       return url;
     } catch (error) {
       console.log("Error uploading file to IPFS: ", error);
@@ -75,7 +76,7 @@ export const NFTProvider = ({ children }) => {
     });
     try {
       const added = await client.add(data);
-      const url = `${process.env.NEXT_PUBLIC_INFURA_IPFS_URL}/${added.path}`;
+      const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
       await createSale(url, price);
       router.push("/");
     } catch (error) {
@@ -106,7 +107,7 @@ export const NFTProvider = ({ children }) => {
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_PROVIDER_URL
+      "https://eth-sepolia.g.alchemy.com/v2/tr6z5zzw0vPOYy2U3jZm0pl2gq3R1hLH"
     );
     const contract = fetchContract(provider);
     const data = await contract.fetchMarketItems();

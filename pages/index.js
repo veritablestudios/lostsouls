@@ -25,7 +25,7 @@ const Home = () => {
       const sortedNfts = [...items];
       sortedNfts.sort((a, b) => b.tokenId - a.tokenId);
       setNfts(sortedNfts);
-      setNftsCopy(items);
+      setNftsCopy(sortedNfts);
       setIsLoading(false);
     });
   }, []);
@@ -52,6 +52,7 @@ const Home = () => {
   }, [activeSelect]);
 
   const onHandleSearch = (value) => {
+    console.log('value', value);
     const filteredNfts = nfts.filter(({ name }) =>
       name.toLowerCase().includes(value.toLowerCase())
     );
@@ -121,7 +122,7 @@ const Home = () => {
           <>
             <div>
               <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
-                Top Sellers
+                Top Creators
               </h1>
               <div
                 className="relative flex-1 max-w-full flex mt-3"
