@@ -79,7 +79,12 @@ const Footer = () => {
               images.telegram,
               images.discord,
             ].map((image, index) => (
-              <div className="mx-2 cursor-pointer" key={index}>
+              <motion.div
+                className="mx-2 cursor-pointer"
+                key={index}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.5, type: "tween" }}
+              >
                 <Image
                   src={image}
                   alt="social"
@@ -87,7 +92,7 @@ const Footer = () => {
                   height={24}
                   className={theme === "light" ? "filter invert" : ""}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
