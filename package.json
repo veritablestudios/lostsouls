@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
+    "framer-motion": "^10.12.7",
     "hardhat": "^2.14.0",
     "ipfs-http-client": "^60.0.0",
     "next": "^13.3.4",
