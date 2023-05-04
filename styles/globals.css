@@ -124,3 +124,16 @@
     opacity: 1;
   }
 }
+.custom-placeholder::placeholder {
+  font-family: "Poppins", sans-serif;
+}
+.custom-placeholder::-webkit-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+.custom-placeholder::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  opacity: 1;
+}
+.custom-placeholder:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
