@@ -132,7 +132,7 @@ const Home = () => {
                   className="flex flex-row w-max overflow-x-scroll no-scrollbar select-none"
                   ref={scrollRef}
                 >
-                  {topCreators.slice(0, 5).map((creator, i) => (
+                  {topCreators.slice(0, 3).map((creator, i) => (
                     <CreatorCard
                       key={creator.seller}
                       rank={i + 1}
@@ -149,8 +149,7 @@ const Home = () => {
                       >
                         <Image
                           src={images.left}
-                          fill
-                          style={{ objectFit: "cover" }}
+                          style={{ objectFit: "contain" }}
                           alt="left-arrow"
                           className={theme === "light" ? "filter invert" : ""}
                         />
@@ -161,8 +160,7 @@ const Home = () => {
                       >
                         <Image
                           src={images.right}
-                          fill
-                          style={{ objectFit: "cover" }}
+                          style={{ objectFit: "contain" }}
                           alt="right-arrow"
                           className={theme === "light" ? "filter invert" : ""}
                         />

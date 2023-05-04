@@ -83,7 +83,6 @@ const Footer = () => {
                   alt="social"
                   width={24}
                   height={24}
-                  style={{ objectFit: "contain" }}
                   className={theme === "light" ? "filter invert" : ""}
                 />
               </div>

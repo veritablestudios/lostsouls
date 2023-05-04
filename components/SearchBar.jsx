@@ -35,7 +35,6 @@ const SearchBar = ({
         <Image
           src={images.search}
           alt="search"
-          style={{ objectFit: "contain" }}
           width={20}
           height={20}
           className={theme === "light" ? "filter invert" : ""}
@@ -57,7 +56,6 @@ const SearchBar = ({
         </p>
         <Image
           src={images.arrow}
-          style={{ objectFit: "contain" }}
           width={15}
           height={15}
           alt="arrow"

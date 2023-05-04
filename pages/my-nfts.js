@@ -78,7 +78,6 @@ const MyNFTs = () => {
             <Image
               src={getAvatar(currentAccount)}
               fill
-              style={{ objectFit: "cover" }}
               className="rounded-full"
             />
           </div>

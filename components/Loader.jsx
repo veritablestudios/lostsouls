@@ -8,7 +8,6 @@ const Loader = () => {
         src={images.loader}
         alt="loader"
         width={100}
-        style={{ objectFit: "contain" }}
       />
     </div>
   );
