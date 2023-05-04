@@ -135,8 +135,8 @@ const Navbar = () => {
               height={32}
               alt="logo"
             />
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">
-              CryptoKet
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1 font-poppins">
+              LostSouls
             </p>
           </div>
         </Link>

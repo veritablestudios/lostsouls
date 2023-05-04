@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { NFTContext } from "../context/NFTContext";
 import { Button, Input, Loader } from "../components";
 import images from "../assets";
+import { motion } from "framer-motion";
 const CreateNFT = () => {
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({
@@ -60,7 +61,7 @@ const CreateNFT = () => {
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
             Upload File
           </p>
-          <div className="mt-4">
+          <motion.div className="mt-4" whileHover={{ cursor: "pointer" }}>
             <div {...getRootProps()} className={fileStyle}>
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
@@ -91,7 +92,7 @@ const CreateNFT = () => {
                 </div>
               </aside>
             )}
-          </div>
+          </motion.div>
         </div>
         <Input
           inputType="input"

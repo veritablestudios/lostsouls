@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 
 import images from "../assets";
 import { Button } from ".";
-
+import { motion } from "framer-motion";
 const FooterLinks = ({ heading, items }) => {
   return (
     <div className="flex-1 justify-start items-start">
@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
             <Image src={images.logo02} alt="logo" width={32} height={32} />
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">
+            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1 font-poppins">
               LostSouls
             </p>
           </div>
@@ -38,7 +38,9 @@ const Footer = () => {
             Get the latest updates
           </p>
           <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-nft-gray-2 rounded-md">
-            <input
+            <motion.input
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.5, type: "tween" }}
               type="email"
               placeholder="Your Email"
               className="font-poppins h-full flex-1 w-full dark:bg-nft-black-2 bg-white px-4 rounded-md dark:text-white text-nft-black-1 font-normal text-xs minlg:text-lg outline-none"

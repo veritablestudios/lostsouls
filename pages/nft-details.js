@@ -2,11 +2,10 @@ import { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { NFTContext } from "../context/NFTContext";
-import { Loader, NFTCard, Button, Modal } from "../components";
-import images from "../assets";
+import { Loader, Button, Modal } from "../components";
 import { shortenAddress } from "../utils/shortenAddress";
 import { getAvatar } from "../utils/getAvatar";
-
+import { motion } from "framer-motion";
 const PaymentBodyCmp = ({ nft, nftCurrency }) => {
   return (
     <div className="flex flex-col">
@@ -116,14 +115,21 @@ const NFTDetails = () => {
             Creator
           </p>
           <div className="flex flex-row items-center mt-3">
-            <div className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
+            <motion.div
+              whileHover={{
+                scale: [1, 1.1, 1, 1.1, 1],
+                rotate: [0, -2, 0, 2, 0],
+                transition: { duration: 0.15, loop: Infinity },
+              }}
+              className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2"
+            >
               <Image
                 src={getAvatar(nft.seller.toLowerCase())}
                 className="rounded-full"
                 alt="avatar"
                 fill
               />
-            </div>
+            </motion.div>
             <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-semibold">
               {shortenAddress(nft.seller)}
             </p>
@@ -208,7 +214,12 @@ const NFTDetails = () => {
               onClick={() => setSuccessModal(false)}
             >
               <div className="relative w-52 h-52">
-                <Image src={nft.image} style={{ objectFit: "cover" }} fill alt="nft"/>
+                <Image
+                  src={nft.image}
+                  style={{ objectFit: "cover" }}
+                  fill
+                  alt="nft"
+                />
               </div>
               <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl mt-10">
                 You successfully purchased{" "}
