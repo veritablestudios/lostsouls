@@ -14,8 +14,8 @@ const NFTCard = ({ nft, onProfilePage }) => {
           <Image
             src={nft.image || images[`nft${nft.i}`]}
             alt={`nft${nft.i}`}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="mt-3 flex flex-col">

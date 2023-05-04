@@ -131,7 +131,7 @@ const Navbar = () => {
           >
             <Image
               src={images.logo02}
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
               width={32}
               height={32}
               alt="logo"
@@ -151,7 +151,7 @@ const Navbar = () => {
           >
             <Image
               src={images.logo02}
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
               width={32}
               height={32}
               alt="logo"
@@ -191,7 +191,7 @@ const Navbar = () => {
         {isOpen ? (
           <Image
             src={images.cross}
-            objectFit="contain"
+            style={{ objectFit: "contain" }}
             width={25}
             height={20}
             alt="close"
@@ -201,7 +201,7 @@ const Navbar = () => {
         ) : (
           <Image
             src={images.menu}
-            objectFit="contain"
+            style={{ objectFit: "contain" }}
             width={25}
             height={25}
             alt="menu"

@@ -77,8 +77,8 @@ const MyNFTs = () => {
           <div className="relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full">
             <Image
               src={getAvatar(currentAccount)}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="rounded-full"
             />
           </div>

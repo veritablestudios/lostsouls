@@ -52,7 +52,7 @@ const Home = () => {
   }, [activeSelect]);
 
   const onHandleSearch = (value) => {
-    console.log('value', value);
+    console.log("value", value);
     const filteredNfts = nfts.filter(({ name }) =>
       name.toLowerCase().includes(value.toLowerCase())
     );
@@ -149,8 +149,8 @@ const Home = () => {
                       >
                         <Image
                           src={images.left}
-                          layout="fill"
-                          objectFit="contain"
+                          fill
+                          style={{ objectFit: "cover" }}
                           alt="left-arrow"
                           className={theme === "light" ? "filter invert" : ""}
                         />
@@ -161,8 +161,8 @@ const Home = () => {
                       >
                         <Image
                           src={images.right}
-                          layout="fill"
-                          objectFit="contain"
+                          fill
+                          style={{ objectFit: "cover" }}
                           alt="right-arrow"
                           className={theme === "light" ? "filter invert" : ""}
                         />

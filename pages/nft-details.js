@@ -21,7 +21,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
       <div className="flexBetweenStart my-5">
         <div className="flex-1 flexStartCenter">
           <div className="relative w-28 h-28">
-            <Image src={nft.image} layout="fill" objectFit="cover" />
+            <Image src={nft.image} fill style={{ objectFit: "cover" }} />
           </div>
           <div className="flexCenterStart flex-col ml-5">
             <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm minlg:text-xl">
@@ -98,9 +98,9 @@ const NFTDetails = () => {
         <div className="relative w-557 minmd:w-2/3 minmd:h-2/3 sm:w-full sm:h-300 h-557">
           <Image
             src={nft.image}
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
             className="rounded-xl shadow-lg"
-            layout="fill"
+            fill
           />
         </div>
       </div>
@@ -119,9 +119,9 @@ const NFTDetails = () => {
             <div className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
               <Image
                 src={getAvatar(nft.seller.toLowerCase())}
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
                 className="rounded-full"
-                layout="fill"
+                fill
               />
             </div>
             <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-semibold">
@@ -208,7 +208,7 @@ const NFTDetails = () => {
               onClick={() => setSuccessModal(false)}
             >
               <div className="relative w-52 h-52">
-                <Image src={nft.image} objectFit="cover" layout="fill" />
+                <Image src={nft.image} style={{ objectFit: "cover" }} fill />
               </div>
               <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl mt-10">
                 You successfully purchased{" "}
