@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 
 import { NFTProvider } from "../context/NFTContext";
@@ -15,10 +14,7 @@ const App = ({ Component, pageProps }) => {
           </div>
           <Footer />
         </div>
-        <Script
-          src="https://kit.fontawesome.com/39c9d22d07.js"
-          crossorigin="anonymous"
-        />
+
       </ThemeProvider>
     </NFTProvider>
   );
