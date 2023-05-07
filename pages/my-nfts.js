@@ -4,7 +4,6 @@ import { NFTContext } from "../context/NFTContext";
 import { Loader, NFTCard, Banner, SearchBar } from "../components";
 import { shortenAddress } from "../utils/shortenAddress";
 import { getAvatar } from "../utils/getAvatar";
-import { motion } from "framer-motion";
 const MyNFTs = () => {
   const { fetchMyNFTsOrListedNFTs, currentAccount } = useContext(NFTContext);
   const [nfts, setNfts] = useState([]);
@@ -73,20 +72,13 @@ const MyNFTs = () => {
           parentStyles="h-80 justify-center"
         />
         <div className="flexCenter flex-col -mt-20 z-0">
-          <motion.div
-            whileHover={{
-              scale: [1, 1.1, 1, 1.1, 1],
-              rotate: [0, -2, 0, 2, 0],
-              transition: { duration: 0.15, loop: Infinity },
-            }}
-            className="relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full"
-          >
+          <div className="hvr-buzz relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full">
             <Image
               src={getAvatar(currentAccount)}
               fill
               className="rounded-full"
             />
-          </motion.div>
+          </div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-2xl mt-6">
             {shortenAddress(currentAccount)}
           </p>

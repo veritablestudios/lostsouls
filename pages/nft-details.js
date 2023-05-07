@@ -5,7 +5,6 @@ import { NFTContext } from "../context/NFTContext";
 import { Loader, Button, Modal } from "../components";
 import { shortenAddress } from "../utils/shortenAddress";
 import { getAvatar } from "../utils/getAvatar";
-import { motion } from "framer-motion";
 const PaymentBodyCmp = ({ nft, nftCurrency }) => {
   return (
     <div className="flex flex-col">
@@ -115,21 +114,14 @@ const NFTDetails = () => {
             Creator
           </p>
           <div className="flex flex-row items-center mt-3">
-            <motion.div
-              whileHover={{
-                scale: [1, 1.1, 1, 1.1, 1],
-                rotate: [0, -2, 0, 2, 0],
-                transition: { duration: 0.15, loop: Infinity },
-              }}
-              className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2"
-            >
+            <div className="hvr-buzz relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
               <Image
                 src={getAvatar(nft.seller.toLowerCase())}
                 className="rounded-full"
                 alt="avatar"
                 fill
               />
-            </motion.div>
+            </div>
             <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-semibold">
               {shortenAddress(nft.seller)}
             </p>

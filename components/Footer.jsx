@@ -3,7 +3,6 @@ import { useTheme } from "next-themes";
 
 import images from "../assets";
 import { Button } from ".";
-import { motion } from "framer-motion";
 const FooterLinks = ({ heading, items }) => {
   return (
     <div className="flex-1 justify-start items-start">
@@ -38,12 +37,10 @@ const Footer = () => {
             Get the latest updates
           </p>
           <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-nft-gray-2 rounded-md">
-            <motion.input
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.5, type: "tween" }}
+            <input
               type="email"
               placeholder="Your Email"
-              className="font-poppins h-full flex-1 w-full dark:bg-nft-black-2 bg-white px-4 rounded-md dark:text-white text-nft-black-1 font-normal text-xs minlg:text-lg outline-none"
+              className="hvr-glow font-poppins h-full flex-1 w-full dark:bg-nft-black-2 bg-white px-4 rounded-md dark:text-white text-nft-black-1 font-normal text-xs minlg:text-lg outline-none"
             />
             <div className="flex-initial">
               <Button btnName="Email me" classStyles="rounded-md" />
@@ -79,12 +76,7 @@ const Footer = () => {
               images.telegram,
               images.discord,
             ].map((image, index) => (
-              <motion.div
-                className="mx-2 cursor-pointer"
-                key={index}
-                whileHover={{ scale: 1.2 }}
-                transition={{ duration: 0.5, type: "tween" }}
-              >
+              <div className="mx-2 cursor-pointer hvr-grow-rotate" key={index}>
                 <Image
                   src={image}
                   alt="social"
@@ -92,7 +84,7 @@ const Footer = () => {
                   height={24}
                   className={theme === "light" ? "filter invert" : ""}
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
