@@ -80,14 +80,14 @@ const MyNFTs = () => {
               alt="avatar"
             />
           </div>
-          <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-2xl mt-6">
+          <p className="font-poppins text-white font-semibold text-2xl mt-6">
             {shortenAddress(currentAccount)}
           </p>
         </div>
       </div>
       {!isLoading && !nfts.length && !nftsCopy.length ? (
         <div className="flexCenter sm:p-4 p-16">
-          <h1 className="font-poppins dark:text-white text-nft-black-1 text-3xl font-extrabold">
+          <h1 className="font-poppins text-white text-3xl font-extrabold">
             nothing owned.
           </h1>
         </div>

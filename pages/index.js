@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 
 import { Banner, CreatorCard, Loader, NFTCard, SearchBar } from "../components";
 import images from "../assets";
@@ -18,7 +17,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const parentRef = useRef(null);
   const scrollRef = useRef(null);
-  const { theme } = useTheme();
 
   useEffect(() => {
     fetchNFTs().then((items) => {
@@ -115,13 +113,13 @@ const Home = () => {
           </div>
         ) : null}
         {!isLoading && !nftsCopy.length ? (
-          <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
+          <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
             nothing for sale!
           </h1>
         ) : (
           <>
             <div>
-              <h1 className="font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
+              <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
                 top creators
               </h1>
               <div
@@ -151,7 +149,6 @@ const Home = () => {
                           src={images.left}
                           style={{ objectFit: "contain" }}
                           alt="left-arrow"
-                          className={theme === "light" ? "filter invert" : ""}
                         />
                       </div>
                       <div
@@ -162,7 +159,6 @@ const Home = () => {
                           src={images.right}
                           style={{ objectFit: "contain" }}
                           alt="right-arrow"
-                          className={theme === "light" ? "filter invert" : ""}
                         />
                       </div>
                     </>
@@ -172,7 +168,7 @@ const Home = () => {
             </div>
             <div className="mt-10">
               <div className="flexBetween mx-4 ms:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
-                <h1 className="flex-1 font-poppins dark:text-white text-nft-black-1 text-2xl minlg:text-4xl font-semibold sm:mb-4">
+                <h1 className="flex-1 font-poppins text-white text-2xl minlg:text-4xl font-semibold sm:mb-4">
                   hot NFTs
                 </h1>
                 <div className="flex-2 sm:w-full flex flex-row sm:flex-col">
