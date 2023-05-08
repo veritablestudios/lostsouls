@@ -29,6 +29,7 @@ const Modal = ({ header, body, footer, handleClose }) => {
               src={images.cross}
               fill
               className={`${theme === "light" ? "filter invert" : ""}`}
+              alt="close"
             />
           </div>
         </div>

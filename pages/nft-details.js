@@ -19,7 +19,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
       <div className="flexBetweenStart my-5">
         <div className="flex-1 flexStartCenter">
           <div className="relative w-28 h-28">
-            <Image src={nft.image} fill />
+            <Image src={nft.image} fill alt="nft-image"/>
           </div>
           <div className="flexCenterStart flex-col ml-5">
             <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm minlg:text-xl">
@@ -99,6 +99,7 @@ const NFTDetails = () => {
             style={{ objectFit: "cover" }}
             className="shadow-md"
             fill
+            alt="nft-image"
           />
         </div>
       </div>

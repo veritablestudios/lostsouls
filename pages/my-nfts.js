@@ -77,6 +77,7 @@ const MyNFTs = () => {
               src={getAvatar(currentAccount)}
               fill
               className="rounded-full"
+              alt="avatar"
             />
           </div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-2xl mt-6">
