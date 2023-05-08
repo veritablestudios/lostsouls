@@ -37,7 +37,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
             }
           }}
           className={`flex flex-row items-center font-poppins font-semibold text-base hover:text-white  mx-3 ${
-            active === item ? "text-white" : "text-nft-gray-3"
+            active === item ? "text-white" : "text-nft-gray-2"
           }`}
         >
           <Link href={generateLink(i)}>{item}</Link>
