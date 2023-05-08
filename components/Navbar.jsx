@@ -28,7 +28,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
         isMobile && "flex-col h-full"
       }`}
     >
-      {["Explore NFTs", "Listed NFTs", "My NFTs"].map((item, i) => (
+      {["explore NFTs", "listed NFTs", "my NFTs"].map((item, i) => (
         <li
           key={i}
           onClick={() => {
@@ -54,7 +54,7 @@ const ButtonGroup = ({ router, setActive, setIsOpen }) => {
   const { connectWallet, currentAccount } = useContext(NFTContext);
   return currentAccount ? (
     <Button
-      btnName="Create"
+      btnName="create"
       classStyles="mx-2 rounded-xl"
       handleClick={() => {
         setActive("");
@@ -64,7 +64,7 @@ const ButtonGroup = ({ router, setActive, setIsOpen }) => {
     />
   ) : (
     <Button
-      btnName="Connect"
+      btnName="connect"
       classStyles="mx-2 rounded-xl"
       handleClick={() => {
         setIsOpen(false);
@@ -77,20 +77,20 @@ const ButtonGroup = ({ router, setActive, setIsOpen }) => {
 const checkActive = (active, setActive, router) => {
   switch (router.pathname) {
     case "/": {
-      if (active !== "Explore NFTs") {
-        setActive("Explore NFTs");
+      if (active !== "explore NFTs") {
+        setActive("explore NFTs");
       }
       break;
     }
     case "/listed-nfts": {
-      if (active !== "Listed NFTs") {
-        setActive("Listed NFTs");
+      if (active !== "listed NFTs") {
+        setActive("listed NFTs");
       }
       break;
     }
     case "/my-nfts": {
-      if (active !== "My NFTs") {
-        setActive("My NFTs");
+      if (active !== "my NFTs") {
+        setActive("my NFTs");
       }
       break;
     }
@@ -106,9 +106,9 @@ const checkActive = (active, setActive, router) => {
 };
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme("dark");
   const router = useRouter();
-  const [active, setActive] = useState("Explore NFTs");
+  const [active, setActive] = useState("explore NFTs");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -126,15 +126,10 @@ const Navbar = () => {
           <div
             className="flexCenter md:hidden cursor-pointer"
             onClick={() => {
-              setActive("Explore NFTs");
+              setActive("explore NFTs");
             }}
           >
-            <Image
-              src={images.logo02}
-              width={32}
-              height={32}
-              alt="logo"
-            />
+            <Image src={images.logo02} width={32} height={32} alt="logo" />
             <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1 font-poppins">
               LostSouls
             </p>
@@ -144,16 +139,11 @@ const Navbar = () => {
           <div
             className="hidden md:flex"
             onClick={() => {
-              setActive("Explore NFTs");
+              setActive("explore NFTs");
               setIsOpen(false);
             }}
           >
-            <Image
-              src={images.logo02}
-              width={32}
-              height={32}
-              alt="logo"
-            />
+            <Image src={images.logo02} width={32} height={32} alt="logo" />
           </div>
         </Link>
       </div>
@@ -167,7 +157,7 @@ const Navbar = () => {
           />
           <label
             htmlFor="checkbox"
-            className="flexBetween w-8 h-4 bg-black rounded-2xl p-1 relative label"
+            className="flexBetween w-8 h-4 bg-black rounded-xl p-1 relative label"
           >
             <i className="fas fa-sun" />
             <i className="fas fa-moon" />

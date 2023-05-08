@@ -43,8 +43,8 @@ const ResellNFT = () => {
         </h1>
         <Input
           inputType="number"
-          title="Price"
-          placeholder="NFT Price"
+          title="price"
+          placeholder="NFT price"
           handleClick={(e) => setPrice(e.target.value)}
         />
         {image && (
@@ -52,7 +52,7 @@ const ResellNFT = () => {
         )}
         <div className="mt-7 w-full flex justify-end">
           <Button
-            btnName="List NFT"
+            btnName="list NFT"
             classStyles="rounded-xl"
             handleClick={resell}
           />

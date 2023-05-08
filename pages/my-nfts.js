@@ -9,7 +9,7 @@ const MyNFTs = () => {
   const [nfts, setNfts] = useState([]);
   const [nftsCopy, setNftsCopy] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeSelect, setActiveSelect] = useState("Recently added");
+  const [activeSelect, setActiveSelect] = useState("recently added");
 
   useEffect(() => {
     fetchMyNFTsOrListedNFTs().then((items) => {
@@ -22,13 +22,13 @@ const MyNFTs = () => {
   useEffect(() => {
     const sortedNfts = [...nfts];
     switch (activeSelect) {
-      case "Price (low to high)":
+      case "price (low to high)":
         setNfts(sortedNfts.sort((a, b) => a.price - b.price));
         break;
-      case "Price (high to low)":
+      case "price (high to low)":
         setNfts(sortedNfts.sort((a, b) => b.price - a.price));
         break;
-      case "Recently added":
+      case "recently added":
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
       default:
@@ -67,7 +67,7 @@ const MyNFTs = () => {
     <div className="w-full flex justify-start items-center flex-col min-h-screen">
       <div className="w-full flexCenter flex-col">
         <Banner
-          name="Your Souls"
+          name="your souls"
           childStyles="text-center mb-4"
           parentStyles="h-80 justify-center"
         />
@@ -87,7 +87,7 @@ const MyNFTs = () => {
       {!isLoading && !nfts.length && !nftsCopy.length ? (
         <div className="flexCenter sm:p-4 p-16">
           <h1 className="font-poppins dark:text-white text-nft-black-1 text-3xl font-extrabold">
-            No NFTs Owned.
+            nothing owned.
           </h1>
         </div>
       ) : (

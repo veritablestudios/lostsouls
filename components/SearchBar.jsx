@@ -40,7 +40,7 @@ const SearchBar = ({
         />
         <input
           type="text"
-          placeholder="Search NFT here..."
+          placeholder="search NFT here..."
           className="custom-placeholder dark:bg-nft-black-2 bg-white mx-4 w-full dark:text-white text-nft-black-1 font-normal text-xs outline-none"
           onChange={(e) => setDebouncedSearch(e.target.value)}
           value={debouncedSearch}
@@ -63,9 +63,9 @@ const SearchBar = ({
         {toggle && (
           <div className="absolute top-full left-0 right-0 w-full mt-3 z-10 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-nft-gray-2 px-4 rounded-md py-3">
             {[
-              "Recently added",
-              "Price (low to high)",
-              "Price (high to low)",
+              "recently added",
+              "price (low to high)",
+              "price (high to low)",
             ].map((item) => (
               <p
                 onClick={() => setActiveSelect(item)}

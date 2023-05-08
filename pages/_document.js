@@ -11,13 +11,14 @@ export default function Document() {
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
+        <script
+          src="https://kit.fontawesome.com/39c9d22d07.js"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       <body>
         <Main />
-        <NextScript
-          src="https://kit.fontawesome.com/39c9d22d07.js"
-          crossorigin="anonymous"
-        />
+        <NextScript />
       </body>
     </Html>
   );
