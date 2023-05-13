@@ -32,7 +32,7 @@ const CreateNFT = () => {
   });
   const fileStyle = useMemo(
     () =>
-      `bg-nft-black-1 bg-white border border-white flex flex-col items-center p-5 rounded-lg border-dashed
+      `bg-nft-black-1 border border-white flex flex-col items-center p-5 rounded-lg border-dashed
       ${isDragActive && "border-file-active"}
       ${isDragAccept && "border-file-accept"}
       ${isDragReject && "border-file-reject"}

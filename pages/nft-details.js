@@ -166,7 +166,7 @@ const NFTDetails = () => {
       </div>
       {paymentModal && (
         <Modal
-          header="check Out"
+          header="check out"
           body={<PaymentBodyCmp nft={nft} nftCurrency={nftCurrency} />}
           footer={
             <div className="flex flex-row sm:flex-col">
