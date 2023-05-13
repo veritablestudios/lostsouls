@@ -101,7 +101,7 @@ const Home = () => {
             <>
               discover, collect, and sell
               <br />
-              extraordinary NFTs
+              extraordinary souls
             </>
           }
           parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"

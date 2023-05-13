@@ -27,7 +27,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
         isMobile && "flex-col h-full"
       }`}
     >
-      {["explore NFTs", "listed NFTs", "my NFTs"].map((item, i) => (
+      {["explore souls", "souls for sale", "my souls"].map((item, i) => (
         <li
           key={i}
           onClick={() => {
@@ -74,20 +74,20 @@ const ButtonGroup = ({ router, setActive, setIsOpen }) => {
 const checkActive = (active, setActive, router) => {
   switch (router.pathname) {
     case "/": {
-      if (active !== "explore NFTs") {
-        setActive("explore NFTs");
+      if (active !== "explore souls") {
+        setActive("explore souls");
       }
       break;
     }
     case "/listed-nfts": {
-      if (active !== "listed NFTs") {
-        setActive("listed NFTs");
+      if (active !== "souls for sale") {
+        setActive("souls for sale");
       }
       break;
     }
     case "/my-nfts": {
-      if (active !== "my NFTs") {
-        setActive("my NFTs");
+      if (active !== "my souls") {
+        setActive("my souls");
       }
       break;
     }
@@ -104,7 +104,7 @@ const checkActive = (active, setActive, router) => {
 
 const Navbar = () => {
   const router = useRouter();
-  const [active, setActive] = useState("explore NFTs");
+  const [active, setActive] = useState("explore souls");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -118,7 +118,7 @@ const Navbar = () => {
           <div
             className="flexCenter md:hidden cursor-pointer"
             onClick={() => {
-              setActive("explore NFTs");
+              setActive("explore souls");
             }}
           >
             <Image src={images.logo02} width={32} height={32} alt="logo" />
@@ -131,7 +131,7 @@ const Navbar = () => {
           <div
             className="hidden md:flex"
             onClick={() => {
-              setActive("explore NFTs");
+              setActive("explore souls");
               setIsOpen(false);
             }}
           >

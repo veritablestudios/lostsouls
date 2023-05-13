@@ -32,7 +32,7 @@ const SearchBar = ({
         <Image src={images.search} alt="search" width={20} height={20} />
         <input
           type="text"
-          placeholder="search NFT here..."
+          placeholder="search soul here..."
           className="custom-placeholder bg-nft-black-2 mx-4 w-full text-white font-normal text-xs outline-none"
           onChange={(e) => setDebouncedSearch(e.target.value)}
           value={debouncedSearch}

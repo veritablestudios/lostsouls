@@ -93,7 +93,7 @@ const CreateNFT = () => {
         <Input
           inputType="input"
           title="name"
-          placeholder="NFT name"
+          placeholder="soul name"
           handleClick={(e) =>
             setFormInput({ ...formInput, name: e.target.value })
           }
@@ -101,7 +101,7 @@ const CreateNFT = () => {
         <Input
           inputType="textarea"
           title="description"
-          placeholder="NFT description"
+          placeholder="soul description"
           handleClick={(e) =>
             setFormInput({ ...formInput, description: e.target.value })
           }
@@ -109,7 +109,7 @@ const CreateNFT = () => {
         <Input
           inputType="number"
           title="price"
-          placeholder="NFT price"
+          placeholder="0.001"
           handleClick={(e) =>
             setFormInput({ ...formInput, price: e.target.value })
           }
