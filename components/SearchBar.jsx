@@ -29,12 +29,7 @@ const SearchBar = ({
   return (
     <>
       <div className="hvr-glow py-3 flex-1 flexCenter bg-nft-black-2 border border-nft-black-2 px-4 rounded-md">
-        <Image
-          src={images.search}
-          alt="search"
-          width={20}
-          height={20}
-        />
+        <Image src={images.search} alt="search" width={20} height={20} />
         <input
           type="text"
           placeholder="search NFT here..."
@@ -50,12 +45,7 @@ const SearchBar = ({
         <p className="font-poppins text-white font-normal text-xs">
           {activeSelect}
         </p>
-        <Image
-          src={images.arrow}
-          width={15}
-          height={15}
-          alt="arrow"
-        />
+        <Image src={images.arrow} width={15} height={15} alt="arrow" />
         {toggle && (
           <div className="absolute top-full left-0 right-0 w-full mt-3 z-10 bg-nft-black-2 border border-nft-black-2 px-4 rounded-md py-3">
             {[
