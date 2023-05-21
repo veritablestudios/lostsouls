@@ -16,7 +16,7 @@ const Modal = ({ header, body, footer, handleClose }) => {
     >
       <div
         ref={modalRef}
-        className="w-2/5 md:w-11/12 minlg:w-2/4 bg-nft-dark flex flex-col rounded-3xl"
+        className="w-2/5 md:w-11/12 minlg:w-2/4 bg-neutral-900 flex flex-col rounded-3xl"
       >
         <div className="flex justify-end mt-4 mr-4 minlg:mt-6 minlg:mr-6">
           <div
