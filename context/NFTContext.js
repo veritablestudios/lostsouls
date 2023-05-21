@@ -132,7 +132,7 @@ export const NFTProvider = ({ children }) => {
           tokenURI,
         };
       })
-      // npx hardhat run scripts/deploy.js --network localhost
+      // npx hardhat run scripts/deploy.js --network sepolia
     );
     return items;
   };
