@@ -9,6 +9,7 @@ const IPFS_API_KEY = process.env.NEXT_PUBLIC_IPFS_API_KEY;
 const IPFS_API_KEY_SECRET = process.env.NEXT_PUBLIC_IPFS_API_KEY_SECRET;
 const IPFS_DEDICATED_GATEWAY_SUBDOMAIN =
   process.env.NEXT_PUBLIC_IPFS_DEDICATED_GATEWAY_SUBDOMAIN;
+const INFURA_URL = process.env.NEXT_PUBLIC_INFURA_URL;
 const auth = `Basic ${Buffer.from(
   `${IPFS_API_KEY}:${IPFS_API_KEY_SECRET}`
 ).toString("base64")}`;
@@ -123,9 +124,7 @@ export const NFTProvider = ({ children }) => {
 
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
-    const provider = new ethers.providers.JsonRpcProvider(
-      "https://sepolia.infura.io/v3/d8704bff47d94c528e5613729cbd33fd"
-    );
+    const provider = new ethers.providers.JsonRpcProvider(INFURA_URL);
     const contract = fetchContract(provider);
     const data = await contract.fetchMarketItems();
     const items = await Promise.all(
