@@ -9,9 +9,10 @@ const Input = ({ inputType, title, placeholder, handleClick }) => {
         <div className="hvr-box-shadow-inset flexBetween flex-row bg-neutral-800  rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3">
           <input
             type="number"
-            className="flex w-full bg-neutral-800"
+            className="flex w-full bg-neutral-800 outline-none"
             placeholder={placeholder}
             onChange={handleClick}
+            step="0.001"
           />
           <p className="font-poppins text-white font-semibold text-xl">
             {nftCurrency}
@@ -20,13 +21,13 @@ const Input = ({ inputType, title, placeholder, handleClick }) => {
       ) : inputType === "textarea" ? (
         <textarea
           rows={10}
-          className="hvr-box-shadow-inset bg-neutral-800 rounded-lg w-full font-poppins text-white text-base mt-4 px-4 py-3"
+          className="hvr-box-shadow-inset bg-neutral-800 rounded-lg w-full font-poppins text-white text-base mt-4 px-4 py-3 outline-none"
           placeholder={placeholder}
           onChange={handleClick}
         />
       ) : (
         <input
-          className="hvr-box-shadow-inset bg-neutral-800 rounded-lg w-full font-poppins text-white text-base mt-4 px-4 py-3"
+          className="hvr-box-shadow-inset bg-neutral-800 rounded-lg w-full font-poppins text-white text-base mt-4 px-4 py-3 outline-none"
           placeholder={placeholder}
           onChange={handleClick}
         />

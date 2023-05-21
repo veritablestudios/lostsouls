@@ -34,11 +34,11 @@ const Footer = () => {
           <p className="font-poppins text-white font-semibold text-base mt-6">
             get the latest updates
           </p>
-          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-neutral-900 rounded-xl">
+          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-neutral-900 rounded-xl outline-none">
             <input
               type="email"
               placeholder="your email"
-              className="hvr-box-shadow-inset font-poppins h-full flex-1 w-full bg-neutral-900  px-4 rounded-xl text-white font-normal text-xs minlg:text-lg"
+              className="hvr-box-shadow-inset font-poppins h-full flex-1 w-full bg-neutral-900  px-4 rounded-xl text-white font-normal text-xs minlg:text-lg outline-none"
             />
             <div className="flex-initial">
               <Button btnName="email me" classStyles="rounded-xl" />
