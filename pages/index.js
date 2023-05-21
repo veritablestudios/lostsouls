@@ -114,7 +114,7 @@ const Home = () => {
         ) : null}
         {!isLoading && !nftsCopy.length ? (
           <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
-            nothing for sale!
+            no souls for sale👿
           </h1>
         ) : (
           <>
