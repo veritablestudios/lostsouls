@@ -8,15 +8,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "nft-gray-1": "#E3E1E3",
-        "nft-gray-2": "#4F4F4F",
-        "nft-black-1": "#2D2E36",
-        "nft-black-2": "#1B1A21",
-        "nft-black-3": "#2A2D3A",
-        "nft-red-violet": "#DA18A3",
-        "file-active": "#2196f3",
-        "file-accept": "#00e676",
-        "file-reject": "#ff1744",
         "overlay-black": "rgba(0, 0, 0, 0.8)",
       },
       width: {

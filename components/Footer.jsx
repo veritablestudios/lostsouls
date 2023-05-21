@@ -10,7 +10,7 @@ const FooterLinks = ({ heading, items }) => {
       </h3>
       {items.map((item, index) => (
         <p
-          className="font-poppins text-white font-normal text-base cursor-pointer hover:text-nft-gray-1 my-3"
+          className="hover:text-neutral-500 font-poppins text-white font-normal text-base cursor-pointer  my-3"
           key={index}
         >
           {item}
@@ -22,7 +22,7 @@ const FooterLinks = ({ heading, items }) => {
 
 const Footer = () => {
   return (
-    <footer className="flexCenter flex-col border-t border-nft-black-1 sm:py-8 py-16">
+    <footer className="flexCenter flex-col border-t border-neutral-700 sm:py-8 py-16">
       <div className=" w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flexCenter w-full mt-5 border-t border-nft-black-1 sm:px-4 px-16">
+      <div className="flexCenter w-full mt-5 border-t border-neutral-700 sm:px-4 px-16">
         <div className="flexBetween flex-row w-full minmd:w-4/5 sm:flex-col mt-7">
           <p className="font-poppins text-white font-semibold text-base">
             LostSouls, inc. all rights reserved

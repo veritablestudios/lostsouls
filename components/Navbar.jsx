@@ -37,7 +37,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
             }
           }}
           className={`flex flex-row items-center font-poppins font-semibold text-base hover:text-white  mx-3 ${
-            active === item ? "text-white" : "text-nft-gray-2"
+            active === item ? "text-white" : "text-neutral-500"
           }`}
         >
           <Link href={generateLink(i)}>{item}</Link>
@@ -170,7 +170,7 @@ const Navbar = () => {
           />
         )}
         {isOpen && (
-          <div className="fixed inset-0 top-65 bg-nft-dark z-10 nav-h flex justify-between flex-col">
+          <div className="fixed inset-0 top-65 bg-neutral-950 z-10 nav-h flex justify-between flex-col">
             <div className="flex-1 p-4">
               <MenuItems
                 active={active}
@@ -179,7 +179,7 @@ const Navbar = () => {
                 setIsOpen={setIsOpen}
               />
             </div>
-            <div className="p-4 border-t border-nft-black-1">
+            <div className="p-4">
               <ButtonGroup
                 setActive={setActive}
                 router={router}

@@ -31,7 +31,7 @@ const Modal = ({ header, body, footer, handleClose }) => {
             {header}
           </h2>
         </div>
-        <div className="p-10 sm:px-4 border-t border-b border-nft-black-3">
+        <div className="p-10 sm:px-4 border-y border-neutral-700">
           {body}
         </div>
         <div className="flexCenter p-4">{footer}</div>
