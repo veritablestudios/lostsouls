@@ -8,7 +8,7 @@ const MyNFTs = () => {
   const { fetchMyNFTsOrListedNFTs, currentAccount } = useContext(NFTContext);
   const [nfts, setNfts] = useState([]);
   const [nftsCopy, setNftsCopy] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [activeSelect, setActiveSelect] = useState("recently added");
 
   useEffect(() => {
@@ -72,13 +72,8 @@ const MyNFTs = () => {
           parentStyles="h-80 justify-center"
         />
         <div className="flexCenter flex-col -mt-20 z-0">
-          <div className="hvr-buzz relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1 bg-nft-black-2 rounded-full">
-            <Image
-              src={getAvatar(currentAccount)}
-              fill
-              className="rounded-full"
-              alt="avatar"
-            />
+          <div className="hvr-buzz relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1">
+            <Image src={getAvatar(currentAccount)} fill alt="avatar" />
           </div>
           <p className="font-poppins text-white font-semibold text-2xl mt-6">
             {shortenAddress(currentAccount)}

@@ -112,7 +112,7 @@ const Navbar = () => {
   }, [router.pathname]);
 
   return (
-    <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b bg-nft-dark border-nft-black-1">
+    <nav className="flexBetween w-full fixed z-10 p-4 flex-row">
       <div className="flex flex-1 flex-row justify-start">
         <Link href="/">
           <div
@@ -121,7 +121,7 @@ const Navbar = () => {
               setActive("explore souls");
             }}
           >
-            <Image src={images.logo02} width={32} height={32} alt="logo" />
+            <Image src={images.logo} width={50} height={50} alt="logo" />
             <p className="text-white font-semibold text-lg ml-1 font-poppins">
               LostSouls
             </p>
@@ -135,7 +135,7 @@ const Navbar = () => {
               setIsOpen(false);
             }}
           >
-            <Image src={images.logo02} width={32} height={32} alt="logo" />
+            <Image src={images.logo} width={32} height={32} alt="logo" />
           </div>
         </Link>
       </div>

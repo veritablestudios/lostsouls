@@ -6,10 +6,10 @@ const Input = ({ inputType, title, placeholder, handleClick }) => {
     <div className="mt-10 w-full">
       <p className="font-poppins text-white font-semibold text-xl">{title}</p>
       {inputType === "number" ? (
-        <div className="hvr-glow flexBetween flex-row bg-nft-black-1 border-nft-black-1 rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3">
+        <div className="hvr-box-shadow-inset flexBetween flex-row bg-neutral-900  rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3">
           <input
             type="number"
-            className="flex w-full bg-nft-black-1 outline-none"
+            className="flex w-full bg-neutral-900 outline-none"
             placeholder={placeholder}
             onChange={handleClick}
           />
@@ -20,13 +20,13 @@ const Input = ({ inputType, title, placeholder, handleClick }) => {
       ) : inputType === "textarea" ? (
         <textarea
           rows={10}
-          className="hvr-glow bg-nft-black-1 border-nft-black-1 rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3"
+          className="hvr-box-shadow-inset bg-neutral-900 rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3"
           placeholder={placeholder}
           onChange={handleClick}
         />
       ) : (
         <input
-          className="hvr-glow bg-nft-black-1 border-nft-black-1 rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3"
+          className="hvr-box-shadow-inset bg-neutral-900 rounded-lg w-full outline-none font-poppins text-white text-base mt-4 px-4 py-3"
           placeholder={placeholder}
           onChange={handleClick}
         />

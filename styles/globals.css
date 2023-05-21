@@ -5,15 +5,27 @@
 @tailwind components;
 @tailwind utilities;
 
+.nft-gradient-button {
+  background: linear-gradient(
+    101.12deg,
+    #222222 27.35%,
+    #444444 99.99%,
+    #555555 100%,
+    #555555 100%
+  );
+}
 .nft-gradient {
   background: linear-gradient(
     101.12deg,
-    #eb1484 27.35%,
-    #c91cc3 99.99%,
-    #c81cc5 100%,
-    #c81cc5 100%
+    #111111 27.35%,
+    #222222 99.99%,
+    #333333 100%,
+    #333333 100%
   );
 }
+
+
+
 
 .white-bg {
   background: rgba(255, 255, 255, 0.2);
@@ -55,15 +67,7 @@
   transform: translateX(16px);
 }
 
-.fa-moon {
-  color: pink;
-  font-size: 9px;
-}
 
-.fa-sun {
-  color: yellow;
-  font-size: 9px;
-}
 
 .animated {
   -webkit-animation-duration: 1s;

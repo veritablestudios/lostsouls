@@ -26,7 +26,7 @@ const Footer = () => {
       <div className=" w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
-            <Image src={images.logo02} alt="logo" width={32} height={32} />
+            <Image src={images.logo} alt="logo" width={32} height={32} />
             <p className="text-white font-semibold text-lg ml-1 font-poppins">
               LostSouls
             </p>
@@ -34,11 +34,11 @@ const Footer = () => {
           <p className="font-poppins text-white font-semibold text-base mt-6">
             get the latest updates
           </p>
-          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-nft-black-2 border border-nft-black-2 rounded-xl">
+          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-neutral-900 rounded-xl">
             <input
               type="email"
               placeholder="your email"
-              className="hvr-glow font-poppins h-full flex-1 w-full bg-nft-black-2 px-4 rounded-xl text-white font-normal text-xs minlg:text-lg outline-none"
+              className="hvr-box-shadow-inset font-poppins h-full flex-1 w-full bg-neutral-900  px-4 rounded-xl text-white font-normal text-xs minlg:text-lg outline-none"
             />
             <div className="flex-initial">
               <Button btnName="email me" classStyles="rounded-xl" />

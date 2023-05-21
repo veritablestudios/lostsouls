@@ -99,9 +99,9 @@ const Home = () => {
         <Banner
           name={
             <>
-              discover, collect, and sell
+              embark on a quest to
               <br />
-              extraordinary souls
+              acquire, hoard, and trade profound souls
             </>
           }
           parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
@@ -120,7 +120,7 @@ const Home = () => {
           <>
             <div>
               <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
-                top creators
+                soulforged artisans
               </h1>
               <div
                 className="relative flex-1 max-w-full flex mt-3"
@@ -169,7 +169,7 @@ const Home = () => {
             <div className="mt-10">
               <div className="flexBetween mx-4 ms:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
                 <h1 className="flex-1 font-poppins text-white text-2xl minlg:text-4xl font-semibold sm:mb-4">
-                  hot NFTs
+                  cursed souls
                 </h1>
                 <div className="flex-2 sm:w-full flex flex-row sm:flex-col">
                   <SearchBar

@@ -118,7 +118,6 @@ const NFTDetails = () => {
             <div className="hvr-buzz relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
               <Image
                 src={getAvatar(nft.seller.toLowerCase())}
-                className="rounded-full"
                 alt="avatar"
                 fill
               />
