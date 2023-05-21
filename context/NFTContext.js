@@ -32,7 +32,21 @@ export const NFTProvider = ({ children }) => {
     if (!window.ethereum) {
       return alert("Please install MetaMask first.");
     }
-    const accounts = await window.ethereum.request({ method: "eth_accounts" });
+    try {
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+
+      if (accounts.length) {
+        setCurrentAccount(accounts[0]);
+      } else {
+        console.log("No authorized account found");
+      }
+    } catch (error) {
+      console.log("Error while checking connected wallet:", error);
+    }
+  };
+  const handleAccountsChanged = (accounts) => {
     if (accounts.length) {
       setCurrentAccount(accounts[0]);
     } else {
@@ -41,6 +55,10 @@ export const NFTProvider = ({ children }) => {
   };
   useEffect(() => {
     checkIfWalletIsConnected();
+    window.ethereum.addListener("accountsChanged", handleAccountsChanged);
+    return () => {
+      window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+    };
   }, []);
 
   const connectWallet = async () => {
