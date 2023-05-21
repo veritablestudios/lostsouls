@@ -5,7 +5,7 @@ import { Navbar, Footer } from "../components";
 const App = ({ Component, pageProps }) => {
   return (
     <NFTProvider>
-      <div className="bg-neutral-950 min-h-screen">
+      <div className="bg-neutral-900 min-h-screen">
         <Navbar />
         <div className="pt-65">
           <Component {...pageProps} />
