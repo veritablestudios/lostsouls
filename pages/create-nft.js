@@ -48,18 +48,18 @@ const CreateNFT = () => {
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-3/5 md:w-full">
         <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold xs:ml-0">
-          create new NFT
+          forge a new soul
         </h1>
         <div className="mt-16">
           <p className="font-poppins text-white font-semibold text-xl">
-            upload File
+            upload soul
           </p>
           <div className="mt-4 cursor-pointer">
             <div {...getRootProps()} className={`hvr-glow ${fileStyle}`}>
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
-                <p className="font-poppins text-white font-semibold text-xl">
-                  JPG, PNG, JPEG, GIF, SVG, WEBP. Max 10MB.
+                <p className="font-poppins text-white font-semibold text-xl lowercase">
+                  JPG, PNG, JPEG, GIF, SVG, WEBP. (Max 10MB)
                 </p>
                 <div className="my-12 w-full flex justify-center">
                   <Image
@@ -70,7 +70,7 @@ const CreateNFT = () => {
                   />
                 </div>
                 <p className="font-poppins text-white font-semibold text-sm">
-                  drag and drop File
+                  drag and drop soul
                 </p>
                 <p className="font-poppins text-white font-semibold text-sm mt-2">
                   or browse media on your device
@@ -112,7 +112,7 @@ const CreateNFT = () => {
         />
         <div className="mt-7 w-full flex justify-end">
           <Button
-            btnName="create NFT"
+            btnName="forge soul"
             classStyles="rounded-xl"
             handleClick={() => createNFT(formInput, fileUrl, router)}
           />

@@ -9,9 +9,7 @@ const NFTCard = ({ nft, onProfilePage }) => {
   const { nftCurrency } = useContext(NFTContext);
   return (
     <Link href={{ pathname: "/nft-details", query: nft }}>
-      <div
-        className="hvr-float-shadow flex-1 min-w-215 max-w-max xs:max-w-none sm:w-full sm:min-w-155 minmd:min-w-256 minlg:min-w-327 rounded-3xl p-4 m-4 minlg:m-8 sm:my-2 sm:mx-2 cursor-pointer shadow-md"
-      >
+      <div className="hvr-float-shadow flex-1 min-w-215 max-w-max xs:max-w-none sm:w-full sm:min-w-155 minmd:min-w-256 minlg:min-w-327 rounded-3xl p-4 m-4 minlg:m-8 sm:my-2 sm:mx-2 cursor-pointer shadow-md">
         <div className="relative w-full h-52 sm:h-36 minmd:h-60 minlg:h-300 rounded-3xl overflow-hidden">
           <Image
             src={nft.image || images[`nft${nft.i}`]}
@@ -21,7 +19,7 @@ const NFTCard = ({ nft, onProfilePage }) => {
           />
         </div>
         <div className="mt-3 flex flex-col">
-          <p className="font-poppins text-white font-semibold text-sm minlg:text-xl">
+          <p className="font-poppins text-white font-semibold text-sm minlg:text-xl lowercase">
             {nft.name}
           </p>
           <div className="flexBetween mt-1 minlg:mt-3 flex-row xs:flex-col xs:items-start xs:mt-3">

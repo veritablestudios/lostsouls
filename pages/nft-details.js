@@ -106,7 +106,7 @@ const NFTDetails = () => {
 
       <div className="flex-1 justify-start sm:px-4 p-12 sm:pb-4">
         <div className="flex flex-row sm:flex-col">
-          <h2 className="font-poppins text-white font-semibold text-2xl minlg:text-3xl">
+          <h2 className="font-poppins text-white font-semibold text-2xl minlg:text-3xl lowercase">
             {nft.name}
           </h2>
         </div>
@@ -134,7 +134,7 @@ const NFTDetails = () => {
             </p>
           </div>
           <div className="mt-3">
-            <p className="font-poppins text-white text-base font-normal">
+            <p className="font-poppins text-white text-base font-normal lowercase">
               {nft.description}
             </p>
           </div>
@@ -146,7 +146,7 @@ const NFTDetails = () => {
             </p>
           ) : currentAccount === nft.owner.toLowerCase() ? (
             <Button
-              btnName="list on marketplace"
+              btnName="trade soulbound relic"
               classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
               handleClick={() =>
                 router.push(
