@@ -141,8 +141,8 @@ const NFTDetails = () => {
         </div>
         <div className="flex flex-row mt-10 sm:flex-col">
           {nft.seller.toLowerCase() === currentAccount ? (
-            <p className="font-poppins text-white text-base font-normal border border-gray p-2">
-              you cannot buy your own NFT
+            <p className="font-poppins text-white text-base font-normal bg-neutral-800 p-2 border">
+              forbidden paradox - can't buy your own relic
             </p>
           ) : currentAccount === nft.owner.toLowerCase() ? (
             <Button

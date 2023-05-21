@@ -51,7 +51,6 @@ export const NFTProvider = ({ children }) => {
       method: "eth_requestAccounts",
     });
     setCurrentAccount(accounts[0]);
-    window.location.reload();
   };
 
   const uploadToIPFS = async (file) => {
