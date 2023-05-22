@@ -40,14 +40,16 @@ const SearchBar = ({
       </div>
       <div
         onClick={() => setToggle((prevToggle) => !prevToggle)}
-        className="hvr-box-shadow-inset px-5 relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer bg-neutral-800 rounded-md"
+        className="px-6 relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer bg-neutral-800 rounded-md py-3"
       >
         <p className="font-poppins text-white font-normal text-xs">
           {activeSelect}
         </p>
         <Image src={images.arrow} width={15} height={15} alt="arrow" />
         {toggle && (
-          <div className="absolute top-full left-0 right-0 w-full mt-3 z-10 bg-neutral-800 px-4 rounded-md py-3">
+          <div
+            className="absolute top-full left-0 right-0 w-full mt-3 bg-neutral-800 px-6 rounded-md py-3 z-10"
+          >
             {[
               "recently added",
               "price (low to high)",
@@ -56,7 +58,7 @@ const SearchBar = ({
               <p
                 onClick={() => setActiveSelect(item)}
                 key={item}
-                className="hvr-grow-rotate font-poppins text-white font-normal text-xs my-3 cursor-pointer"
+                className="font-poppins text-white font-normal text-xs my-3 cursor-pointer hvr-grow-rotate flex flex-col"
               >
                 {item}
               </p>
