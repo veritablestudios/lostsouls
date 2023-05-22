@@ -121,7 +121,7 @@ const Navbar = () => {
               setActive("explore souls");
             }}
           >
-            <Image src={images.logo} width={50} height={50} alt="logo" />
+            <Image src={images.logo} className="w-16 h-16" alt="logo" />
             <p className="text-white font-semibold text-lg ml-1 font-poppins">
               LostSouls
             </p>
@@ -135,7 +135,7 @@ const Navbar = () => {
               setIsOpen(false);
             }}
           >
-            <Image src={images.logo} width={32} height={32} alt="logo" />
+            <Image src={images.logo} className="w-16 h-16" alt="logo" />
           </div>
         </Link>
       </div>
@@ -170,7 +170,7 @@ const Navbar = () => {
           />
         )}
         {isOpen && (
-          <div className="fixed inset-0 top-65 bg-neutral-900 z-10 nav-h flex justify-between flex-col">
+          <div className="fixed inset-0 top-65 bg-neutral-900 z-10 nav-h flex justify-between flex-col mt-2">
             <div className="flex-1 p-4">
               <MenuItems
                 active={active}

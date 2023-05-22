@@ -26,8 +26,8 @@ const Footer = () => {
       <div className=" w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
-            <Image src={images.logo} alt="logo" width={32} height={32} />
-            <p className="text-white font-semibold text-lg ml-1 font-poppins">
+            <Image src={images.logo} alt="logo" className="w-10 h-10" />
+            <p className="text-white font-semibold text-lg font-poppins">
               LostSouls
             </p>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
                 className="mx-2 cursor-pointer ease-in-out duration-300 hover:scale-125 hover:rotate-6"
                 key={index}
               >
-                <Image src={image} alt="social" width={24} height={24} />
+                <Image src={image} alt="social" className="w-6 h-6" />
               </div>
             ))}
           </div>
