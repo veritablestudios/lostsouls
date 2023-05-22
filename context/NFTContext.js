@@ -31,7 +31,7 @@ export const NFTProvider = ({ children }) => {
   const nftCurrency = "Ξ";
   const checkIfWalletIsConnected = async () => {
     if (!window.ethereum) {
-      return alert("Please install MetaMask first.");
+      return;
     }
     try {
       const accounts = await window.ethereum.request({
