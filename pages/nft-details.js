@@ -51,7 +51,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
 };
 
 const NFTDetails = () => {
-  const { isLoadingNFT, currentAccount, nftCurrency, buyNFT } =
+  const { isLoadingNFT, currentAccount, nftCurrency, buyNFT, connectWallet } =
     useContext(NFTContext);
   const [isLoading, setIsLoading] = useState(true);
   const [nft, setNft] = useState({
@@ -158,7 +158,13 @@ const NFTDetails = () => {
             <Button
               btnName={`buy for ${nftCurrency}${nft.price}`}
               classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
-              handleClick={() => setPaymentModal(true)}
+              handleClick={() => {
+                if (!currentAccount) {
+                  connectWallet();
+                  return;
+                }
+                setPaymentModal(true);
+              }}
             />
           )}
         </div>
