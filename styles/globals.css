@@ -4,6 +4,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
 
 .nft-gradient-button {
   background: linear-gradient(
@@ -23,9 +27,6 @@
     #333333 100%
   );
 }
-
-
-
 
 .white-bg {
   background: rgba(255, 255, 255, 0.2);
@@ -66,8 +67,6 @@
 .checkbox:checked + .label .ball {
   transform: translateX(16px);
 }
-
-
 
 .animated {
   -webkit-animation-duration: 1s;
