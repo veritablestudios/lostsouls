@@ -28,7 +28,7 @@ const SearchBar = ({
 
   return (
     <>
-      <div className="hvr-box-shadow-inset p-3 flex-1 flexCenter bg-neutral-800 rounded-md">
+      <div className="hover:shadow-inner hover:shadow-neutral-950 ease-in-out duration-300 p-3 flex-1 flexCenter bg-neutral-800 rounded-md">
         <Image src={images.search} alt="search" width={20} height={20} />
         <input
           type="text"
@@ -40,16 +40,14 @@ const SearchBar = ({
       </div>
       <div
         onClick={() => setToggle((prevToggle) => !prevToggle)}
-        className="px-6 relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer bg-neutral-800 rounded-md py-3"
+        className="px-6 relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer bg-neutral-800 rounded-md py-3 hover:shadow-inner hover:shadow-neutral-950 ease-in-out duration-300"
       >
         <p className="font-poppins text-white font-normal text-xs">
           {activeSelect}
         </p>
         <Image src={images.arrow} width={15} height={15} alt="arrow" />
         {toggle && (
-          <div
-            className="absolute top-full left-0 right-0 w-full mt-3 bg-neutral-800 px-6 rounded-md py-3 z-10"
-          >
+          <div className="absolute top-full left-0 right-0 w-full mt-3 bg-neutral-800 px-6 rounded-md py-3 z-10">
             {[
               "recently added",
               "price (low to high)",

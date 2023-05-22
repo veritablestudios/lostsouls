@@ -38,7 +38,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="your email"
-              className="hvr-box-shadow-inset font-poppins h-full flex-1 w-full bg-neutral-900  px-4 rounded-xl text-white font-normal text-xs minlg:text-lg outline-none"
+              className="hover:shadow-inner hover:shadow-neutral-950 ease-in-out duration-300 font-poppins h-full flex-1 w-full bg-neutral-900  px-4 rounded-xl text-white font-normal text-xs minlg:text-lg outline-none"
             />
             <div className="flex-initial">
               <Button btnName="email me" classStyles="rounded-xl" />
