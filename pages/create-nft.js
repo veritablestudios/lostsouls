@@ -55,7 +55,7 @@ const CreateNFT = () => {
             upload soul
           </p>
           <div className="mt-4 cursor-pointer">
-            <div {...getRootProps()} className={`hvr-glow ${fileStyle}`}>
+            <div {...getRootProps()} className={`${fileStyle}`}>
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins text-white font-semibold text-xl lowercase">

@@ -56,7 +56,7 @@ const SearchBar = ({
               <p
                 onClick={() => setActiveSelect(item)}
                 key={item}
-                className="font-poppins text-white font-normal text-xs my-3 cursor-pointer hvr-grow-rotate flex flex-col"
+                className="font-poppins text-white font-normal text-xs my-4 cursor-pointer ease-in-out duration-300 hover:scale-110 hover:rotate-3 flex flex-col"
               >
                 {item}
               </p>

@@ -74,7 +74,10 @@ const Footer = () => {
               images.telegram,
               images.discord,
             ].map((image, index) => (
-              <div className="mx-2 cursor-pointer hvr-grow-rotate" key={index}>
+              <div
+                className="mx-2 cursor-pointer ease-in-out duration-300 hover:scale-125 hover:rotate-6"
+                key={index}
+              >
                 <Image src={image} alt="social" width={24} height={24} />
               </div>
             ))}
