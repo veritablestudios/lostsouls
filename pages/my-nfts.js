@@ -11,6 +11,9 @@ const MyNFTs = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSelect, setActiveSelect] = useState("recently added");
   useEffect(() => {
+    if (!currentAccount) {
+      return;
+    }
     fetchMyNFTsOrListedNFTs().then((items) => {
       setNfts(items);
       setNftsCopy(items);
@@ -34,10 +37,6 @@ const MyNFTs = () => {
         break;
     }
   }, [activeSelect]);
-
-  if (!currentAccount) {
-    return;
-  }
 
   if (isLoading) {
     return <Loader />;

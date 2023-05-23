@@ -18,15 +18,15 @@ const ResellNFT = () => {
     setImage(data.image);
   };
   useEffect(() => {
+    if (!currentAccount) {
+      connectWallet();
+      router.push("/");
+    }
     if (tokenURI) {
       fetchNFT();
     }
   }, [tokenURI, currentAccount]);
-  
-  if (!currentAccount) {
-    connectWallet();
-    return;
-  }
+
   if (isLoadingNFT) {
     return <Loader />;
   }

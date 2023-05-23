@@ -6,14 +6,15 @@ const ListedNFTs = () => {
   const [nfts, setNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    if (!currentAccount) {
+      return;
+    }
     fetchMyNFTsOrListedNFTs("fetchItemsListed").then((items) => {
       setNfts(items);
       setIsLoading(false);
     });
   }, [currentAccount]);
-  if (!currentAccount) {
-    return;
-  }
+
   if (isLoading) {
     return <Loader />;
   }
