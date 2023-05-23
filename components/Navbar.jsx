@@ -99,6 +99,7 @@ const checkActive = (
           setActive("souls for sale");
         }
       }
+      break;
     }
     case "/my-nfts": {
       if (!currentAccount) {
