@@ -56,10 +56,8 @@ export const NFTProvider = ({ children }) => {
   };
   useEffect(() => {
     checkIfWalletIsConnected();
-
     if (window.ethereum) {
       window.ethereum.addListener("accountsChanged", handleAccountsChanged);
-
       return () => {
         window.ethereum.removeListener(
           "accountsChanged",

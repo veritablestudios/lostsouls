@@ -5,7 +5,8 @@ import { NFTContext } from "../context/NFTContext";
 import { Loader, Button, Input } from "../components";
 
 const ResellNFT = () => {
-  const { createSale, isLoadingNFT } = useContext(NFTContext);
+  const { createSale, isLoadingNFT, currentAccount, connectWallet } =
+    useContext(NFTContext);
   const router = useRouter();
   const { tokenId, tokenURI } = router.query;
   const [price, setPrice] = useState("");
@@ -16,13 +17,16 @@ const ResellNFT = () => {
     setPrice(data.price);
     setImage(data.image);
   };
-
   useEffect(() => {
     if (tokenURI) {
       fetchNFT();
     }
-  }, [tokenURI]);
-
+  }, [tokenURI, currentAccount]);
+  
+  if (!currentAccount) {
+    connectWallet();
+    return;
+  }
   if (isLoadingNFT) {
     return <Loader />;
   }

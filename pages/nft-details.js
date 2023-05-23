@@ -74,7 +74,7 @@ const NFTDetails = () => {
     }
     setNft(router.query);
     setIsLoading(false);
-  }, [router.isReady]);
+  }, [router.isReady, currentAccount]);
 
   const checkout = async () => {
     await buyNFT(nft);
@@ -142,7 +142,7 @@ const NFTDetails = () => {
             </p>
           ) : currentAccount === nft.owner.toLowerCase() ? (
             <Button
-              btnName="trade soulbound relic"
+              btnName="resell soulbound relic"
               classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
               handleClick={() =>
                 router.push(

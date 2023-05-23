@@ -10,17 +10,16 @@ const MyNFTs = () => {
   const [nftsCopy, setNftsCopy] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeSelect, setActiveSelect] = useState("recently added");
-  if (!currentAccount) {
-    return;
-  }
   useEffect(() => {
     fetchMyNFTsOrListedNFTs().then((items) => {
       setNfts(items);
       setNftsCopy(items);
       setIsLoading(false);
     });
-  }, []);
-
+  }, [currentAccount]);
+  if (!currentAccount) {
+    return;
+  }
   useEffect(() => {
     const sortedNfts = [...nfts];
     switch (activeSelect) {
@@ -37,7 +36,7 @@ const MyNFTs = () => {
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
     }
-  }, [activeSelect]);
+  }, [activeSelect, currentAccount]);
 
   if (isLoading) {
     return <Loader />;
