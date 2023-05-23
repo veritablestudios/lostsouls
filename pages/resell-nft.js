@@ -25,11 +25,7 @@ const ResellNFT = () => {
   }, [tokenURI]);
 
   if (isLoadingNFT) {
-    return (
-      <div className="flexStart min-h-screen">
-        <Loader />
-      </div>
-    );
+    return <Loader />;
   }
   const resell = async () => {
     await createSale(tokenURI, price, true, tokenId);

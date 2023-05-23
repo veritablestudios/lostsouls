@@ -39,9 +39,7 @@ const MyNFTs = () => {
 
   if (isLoading) {
     return (
-      <div className="flexStart min-h-screen">
         <Loader />
-      </div>
     );
   }
 
@@ -69,7 +67,7 @@ const MyNFTs = () => {
         <Banner
           name="your souls"
           childStyles="text-center mb-4"
-          parentStyles="h-80 justify-center"
+          parentStyles="h-80 justify-center mt-5"
         />
         <div className="flexCenter flex-col -mt-20 z-0">
           <div className="hvr-buzz relative flexCenter w-40 h-40 sm:w-36 sm:h-36 p-1">

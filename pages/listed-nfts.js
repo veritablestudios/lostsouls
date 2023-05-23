@@ -15,9 +15,7 @@ const ListedNFTs = () => {
   
   if (isLoading) {
     return (
-      <div className="flexStart min-h-screen">
         <Loader />
-      </div>
     );
   }
 

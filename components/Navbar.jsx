@@ -47,8 +47,13 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   );
 };
 
-const ButtonGroup = ({ router, setActive, setIsOpen }) => {
-  const { connectWallet, currentAccount } = useContext(NFTContext);
+const ButtonGroup = ({
+  router,
+  setActive,
+  setIsOpen,
+  connectWallet,
+  currentAccount,
+}) => {
   return currentAccount ? (
     <Button
       btnName="create"
@@ -71,7 +76,13 @@ const ButtonGroup = ({ router, setActive, setIsOpen }) => {
   );
 };
 
-const checkActive = (active, setActive, router) => {
+const checkActive = (
+  active,
+  setActive,
+  router,
+  connectWallet,
+  currentAccount
+) => {
   switch (router.pathname) {
     case "/": {
       if (active !== "explore souls") {
@@ -80,14 +91,23 @@ const checkActive = (active, setActive, router) => {
       break;
     }
     case "/listed-nfts": {
-      if (active !== "souls for sale") {
-        setActive("souls for sale");
+      if (!currentAccount) {
+        connectWallet();
+        router.push("/");
+      } else {
+        if (active !== "souls for sale") {
+          setActive("souls for sale");
+        }
       }
-      break;
     }
     case "/my-nfts": {
-      if (active !== "my souls") {
-        setActive("my souls");
+      if (!currentAccount) {
+        connectWallet();
+        router.push("/");
+      } else {
+        if (active !== "my souls") {
+          setActive("my souls");
+        }
       }
       break;
     }
@@ -106,9 +126,10 @@ const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState("explore souls");
   const [isOpen, setIsOpen] = useState(false);
+  const { connectWallet, currentAccount } = useContext(NFTContext);
 
   useEffect(() => {
-    checkActive(active, setActive, router);
+    checkActive(active, setActive, router, connectWallet, currentAccount);
   }, [router.pathname]);
 
   return (
@@ -147,6 +168,8 @@ const Navbar = () => {
               setActive={setActive}
               router={router}
               setIsOpen={setIsOpen}
+              connectWallet={connectWallet}
+              currentAccount={currentAccount}
             />
           </div>
         </div>
@@ -184,6 +207,8 @@ const Navbar = () => {
                 setActive={setActive}
                 router={router}
                 setIsOpen={setIsOpen}
+                connectWallet={connectWallet}
+                currentAccount={currentAccount}
               />
             </div>
           </div>

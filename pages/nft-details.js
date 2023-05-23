@@ -84,9 +84,7 @@ const NFTDetails = () => {
 
   if (isLoading) {
     return (
-      <div className="flexStart min-h-screen">
         <Loader />
-      </div>
     );
   }
   console.log("nft.seller", nft.seller);
