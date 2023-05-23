@@ -52,7 +52,7 @@ const CreateNFT = () => {
           </p>
           <div className="mt-4 cursor-pointer">
             <div {...getRootProps()} className={`${fileStyle}`}>
-              <input {...getInputProps()} />
+              <input {...getInputProps()} required/>
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins text-white font-semibold text-xl lowercase">
                   JPG, PNG, JPEG, GIF, SVG, WEBP. (Max 10MB)

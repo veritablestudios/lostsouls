@@ -110,24 +110,36 @@ export const NFTProvider = ({ children }) => {
     }
   };
   const createSale = async (url, formInputPrice, isReselling, id) => {
+    if (!formInputPrice || !url) {
+      alert("All fields are required");
+      return window.location.reload();
+    }
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
+    console.log("formInputPrice", formInputPrice);
     const price = ethers.utils.parseUnits(formInputPrice, "ether");
 
-    const contract = fetchContract(signer);
-    const listingPrice = await contract.getListingPrice();
+    try {
+      const contract = fetchContract(signer);
+      const listingPrice = await contract.getListingPrice();
 
-    const transaction = !isReselling
-      ? await contract.createToken(url, price, {
-          value: listingPrice.toString(),
-        })
-      : await contract.resellToken(id, price, {
-          value: listingPrice.toString(),
-        });
-    setIsLoadingNFT(true);
-    await transaction.wait();
+      const transaction = !isReselling
+        ? await contract.createToken(url, price, {
+            value: listingPrice.toString(),
+          })
+        : await contract.resellToken(id, price, {
+            value: listingPrice.toString(),
+          });
+
+      setIsLoadingNFT(true);
+      await transaction.wait();
+    } catch (error) {
+      alert("An error occurred. Please try again.");
+      console.error(error);
+      return window.location.reload();
+    }
   };
 
   const fetchNFTs = async () => {

@@ -83,9 +83,7 @@ const NFTDetails = () => {
   };
 
   if (isLoading) {
-    return (
-        <Loader />
-    );
+    return <Loader />;
   }
   console.log("nft.seller", nft.seller);
   return (
@@ -174,14 +172,14 @@ const NFTDetails = () => {
           footer={
             <div className="flex flex-row sm:flex-col">
               <Button
-                btnName="checkout"
-                classStyles="mr-5 sm:mb-5 sm:mr-0 rounded-xl"
-                handleClick={checkout}
+                btnName="cancel"
+                classStyles=" mr-5 sm:mb-5 sm:mr-0 rounded-xl"
+                handleClick={() => setPaymentModal(false)}
               />
               <Button
-                btnName="cancel"
+                btnName="checkout"
                 classStyles="rounded-xl"
-                handleClick={() => setPaymentModal(false)}
+                handleClick={checkout}
               />
             </div>
           }
@@ -190,7 +188,7 @@ const NFTDetails = () => {
       )}
       {isLoadingNFT && (
         <Modal
-          header="buying NFT..."
+          header="buying soul..."
           body={
             <div className="flexCenter flex-col text-center">
               <div className="relative w-52 h-52">

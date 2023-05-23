@@ -15,7 +15,6 @@ const ResellNFT = () => {
     const { data } = await axios.get(tokenURI);
     setPrice(data.price);
     setImage(data.image);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -35,12 +34,11 @@ const ResellNFT = () => {
     <div className="flex justify-center sm:px-4 p-12">
       <div className="w-3/5 md:w-full">
         <h1 className="font-poppins text-white font-semibold text-2xl">
-          Resell NFT
+          resell soul
         </h1>
         <Input
           inputType="number"
-          title="price"
-          placeholder="0.002"
+          title="new price"
           handleClick={(e) => setPrice(e.target.value)}
         />
         {image && (
@@ -48,7 +46,7 @@ const ResellNFT = () => {
         )}
         <div className="mt-7 w-full flex justify-end">
           <Button
-            btnName="list NFT"
+            btnName="list soul"
             classStyles="rounded-xl"
             handleClick={resell}
           />

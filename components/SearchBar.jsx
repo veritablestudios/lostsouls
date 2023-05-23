@@ -33,7 +33,7 @@ const SearchBar = ({
         <input
           type="text"
           placeholder="search soul here..."
-          className="custom-placeholder bg-neutral-800 mx-4 w-full text-white font-normal text-xs outline-none"
+          className="custom-placeholder bg-neutral-800 mx-4 w-full text-white font-normal text-xs outline-none font-poppins"
           onChange={(e) => setDebouncedSearch(e.target.value)}
           value={debouncedSearch}
         />
