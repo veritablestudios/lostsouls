@@ -40,7 +40,9 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
             active === item ? "text-white" : "text-neutral-500"
           }`}
         >
-          <Link href={generateLink(i)}>{item}</Link>
+          <Link href={generateLink(i)} shallow={true}>
+            {item}
+          </Link>
         </li>
       ))}
     </ul>
@@ -136,7 +138,7 @@ const Navbar = () => {
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row">
       <div className="flex flex-1 flex-row justify-start">
-        <Link href="/">
+        <Link href="/" shallow={true}>
           <div
             className="flexCenter md:hidden cursor-pointer"
             onClick={() => {
@@ -149,7 +151,7 @@ const Navbar = () => {
             </p>
           </div>
         </Link>
-        <Link href="/">
+        <Link href="/" shallow={true}>
           <div
             className="hidden md:flex"
             onClick={() => {
