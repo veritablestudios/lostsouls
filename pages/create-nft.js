@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useContext } from "react";
+import { useState, useMemo, useCallback, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
@@ -7,14 +7,26 @@ import { NFTContext } from "../context/NFTContext";
 import { Button, Input, Loader } from "../components";
 import images from "../assets";
 const CreateNFT = () => {
+  const {
+    uploadToIPFS,
+    createNFT,
+    isLoadingNFT,
+    connectWallet,
+    currentAccount,
+  } = useContext(NFTContext);
+  const router = useRouter();
+  useEffect(() => {
+    if (!currentAccount) {
+      connectWallet();
+      router.replace("/");
+    }
+  }, [currentAccount]);
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({
     name: "",
     description: "",
     price: "",
   });
-  const { uploadToIPFS, createNFT, isLoadingNFT } = useContext(NFTContext);
-  const router = useRouter();
   const onDrop = useCallback(async (acceptedFile) => {
     const url = await uploadToIPFS(acceptedFile[0]);
     setFileUrl(url);
@@ -52,7 +64,7 @@ const CreateNFT = () => {
           </p>
           <div className="mt-4 cursor-pointer">
             <div {...getRootProps()} className={`${fileStyle}`}>
-              <input {...getInputProps()} required/>
+              <input {...getInputProps()} required />
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins text-white font-semibold text-xl lowercase">
                   JPG, PNG, JPEG, GIF, SVG, WEBP. (Max 10MB)
