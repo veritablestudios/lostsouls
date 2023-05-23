@@ -17,9 +17,6 @@ const MyNFTs = () => {
       setIsLoading(false);
     });
   }, [currentAccount]);
-  if (!currentAccount) {
-    return;
-  }
   useEffect(() => {
     const sortedNfts = [...nfts];
     switch (activeSelect) {
@@ -36,7 +33,11 @@ const MyNFTs = () => {
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
     }
-  }, [activeSelect, currentAccount]);
+  }, [activeSelect]);
+
+  if (!currentAccount) {
+    return;
+  }
 
   if (isLoading) {
     return <Loader />;

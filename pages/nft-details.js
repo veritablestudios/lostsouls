@@ -146,7 +146,11 @@ const NFTDetails = () => {
               classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
               handleClick={() =>
                 router.push(
-                  `/resell-nft?tokenId=${nft.tokenId}&tokenURI=${nft.tokenURI}`
+                  {
+                    pathname: "/resell-nft",
+                    query: { tokenId: nft.tokenId, tokenURI: nft.tokenURI },
+                  },
+                  `/resell-nft/${nft.tokenId}`
                 )
               }
             />
