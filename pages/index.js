@@ -107,11 +107,12 @@ const Home = () => {
           parentStyles="justify-start mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
           childStyles="md:text-4xl sm:text-2xl xs:text-xl text-left"
         />
-        {isLoading ? <Loader /> : null}
         {!isLoading && !nftsCopy.length ? (
           <h1 className="font-poppins text-white text-2xl minlg:text-4xl font-semibold ml-4 xs:ml-0">
             no souls for sale👿
           </h1>
+        ) : isLoading ? (
+          <Loader />
         ) : (
           <>
             <div>

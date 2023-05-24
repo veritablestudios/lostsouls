@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["lostsouls.infura-ipfs.io"],
   },
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
