@@ -127,7 +127,7 @@ const Home = () => {
                   className="flex flex-row w-max overflow-x-scroll no-scrollbar select-none"
                   ref={scrollRef}
                 >
-                  {topCreators.slice(0, 3).map((creator, i) => (
+                  {topCreators.slice(0, 10).map((creator, i) => (
                     <CreatorCard
                       key={creator.seller}
                       rank={i + 1}
