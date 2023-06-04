@@ -11,7 +11,7 @@ const Modal = ({ header, body, footer, handleClose }) => {
   };
   return (
     <div
-      className="flexCenter fixed inset-0 z-10 bg-overlay-black animated fadeIn"
+      className="flexCenter fixed inset-0 z-10 bg-overlay-black animate__animated animate__fadeIn"
       onClick={handleClickOutside}
     >
       <div
@@ -31,9 +31,7 @@ const Modal = ({ header, body, footer, handleClose }) => {
             {header}
           </h2>
         </div>
-        <div className="p-10 sm:px-4 border-y border-neutral-700">
-          {body}
-        </div>
+        <div className="p-10 sm:px-4 border-y border-neutral-700">{body}</div>
         <div className="flexCenter p-4">{footer}</div>
       </div>
     </div>
