@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
+        <div className="flex-1 flex flex-wrap ml-10 md:ml-0 md:mt-8">
           <FooterLinks
             heading="LostSouls"
             items={["explore", "how it works", "contact us"]}

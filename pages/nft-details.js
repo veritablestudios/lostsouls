@@ -16,12 +16,12 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
           Subtotal
         </p>
       </div>
-      <div className="flexBetweenStart my-5">
+      <div className="flex my-5">
         <div className="flex-1 flexStartCenter">
           <div className="relative w-28 h-28">
             <Image src={nft.image} fill alt="nft-image" />
           </div>
-          <div className="flexCenterStart flex-col ml-5">
+          <div className="ml-5">
             <p className="font-poppins text-white font-semibold text-sm minlg:text-xl">
               {shortenAddress(nft.seller)}
             </p>

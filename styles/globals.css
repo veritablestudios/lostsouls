@@ -68,17 +68,7 @@
   align-items: center;
 }
 
-.flexBetweenStart {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
 
-.flexCenterStart {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
 
 @keyframes fadeIn {
   from {
