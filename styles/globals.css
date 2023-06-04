@@ -28,13 +28,6 @@
   );
 }
 
-.white-bg {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.nav-h {
-  height: calc(100vh - 66px);
-}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
