@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="flexCenter flex-col border-t border-neutral-700 sm:py-8 py-16">
       <div className=" w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
-        <div className="flexStart flex-1 flex-col">
+        <div className="flex items-start flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
             <Image src={images.logo} alt="logo" className="w-10 h-10" />
             <p className="text-white font-semibold text-lg font-poppins">

@@ -56,17 +56,7 @@
   align-items: center;
 }
 
-.flexStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
 
-.flexStartCenter {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 
 

@@ -17,7 +17,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
         </p>
       </div>
       <div className="flex my-5">
-        <div className="flex-1 flexStartCenter">
+        <div className="flex-1 flex items-center">
           <div className="relative w-28 h-28">
             <Image src={nft.image} fill alt="nft-image" />
           </div>
@@ -32,8 +32,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
         </div>
         <div>
           <p className="font-poppins text-white font-normal text-sm minlg:text-xl">
-            {nftCurrency}
-            {nft.price}
+            {nft.price} ETH
           </p>
         </div>
       </div>
@@ -42,8 +41,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
           Total
         </p>
         <p className="font-poppins text-white font-normal text-sm minlg:text-xl">
-          {nftCurrency}
-          {nft.price}
+          {nft.price} ETH
         </p>
       </div>
     </div>
