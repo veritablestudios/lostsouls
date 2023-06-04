@@ -32,7 +32,8 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
         </div>
         <div>
           <p className="font-poppins text-white font-normal text-sm minlg:text-xl">
-            {nft.price} ETH
+            {nftCurrency}
+            {nft.price}
           </p>
         </div>
       </div>
@@ -41,7 +42,8 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => {
           Total
         </p>
         <p className="font-poppins text-white font-normal text-sm minlg:text-xl">
-          {nft.price} ETH
+          {nftCurrency}
+          {nft.price}
         </p>
       </div>
     </div>
