@@ -69,7 +69,7 @@ export const NFTProvider = ({ children }) => {
 
   const connectWallet = async () => {
     if (!window.ethereum) {
-      return alert("Please install MetaMask first.");
+      return alert("Please install MetaMask first. (use sepolia ETH)");
     }
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
