@@ -25,7 +25,6 @@ export default async function handler(req, res) {
   }
   try {
     const { name, description, image } = req.body;
-    console.log("name", name, "description", description, "image", image);
     const data = JSON.stringify({
       name,
       description,

@@ -136,7 +136,7 @@ const Navbar = () => {
   }, [router.pathname]);
 
   return (
-    <nav className="flexBetween w-full fixed z-10 p-4 flex-row">
+    <nav className="flexBetween w-full fixed z-10 p-4 flex-row backdrop-blur-md">
       <div className="flex flex-1 flex-row justify-start">
         <Link href="/" shallow={true}>
           <div
