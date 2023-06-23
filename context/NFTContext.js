@@ -79,8 +79,14 @@ export const NFTProvider = ({ children }) => {
 
   const uploadToIPFS = async (file) => {
     try {
-      const added = await client.add({ content: file });
-      const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
+      const formData = new FormData();
+      formData.append("image", file);
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const { url } = await response.json();
+      console.log("url in server", url);
       return url;
     } catch (error) {
       console.log("Error uploading file to IPFS: ", error);
@@ -97,6 +103,7 @@ export const NFTProvider = ({ children }) => {
       description,
       image: fileUrl,
     });
+    console.log("data in client", data);
     try {
       const added = await client.add(data);
       const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
