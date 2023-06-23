@@ -2,25 +2,10 @@ import React, { useState, useEffect } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
-import { create as ipfsHttpClient } from "ipfs-http-client";
 import { MarketAddress, MarketAddressABI } from "./constants";
 
-const IPFS_API_KEY = process.env.NEXT_PUBLIC_IPFS_API_KEY;
-const IPFS_API_KEY_SECRET = process.env.NEXT_PUBLIC_IPFS_API_KEY_SECRET;
-const IPFS_DEDICATED_GATEWAY_SUBDOMAIN =
-  process.env.NEXT_PUBLIC_IPFS_DEDICATED_GATEWAY_SUBDOMAIN;
 const INFURA_URL = process.env.NEXT_PUBLIC_INFURA_URL;
-const auth = `Basic ${Buffer.from(
-  `${IPFS_API_KEY}:${IPFS_API_KEY_SECRET}`
-).toString("base64")}`;
-const client = ipfsHttpClient({
-  host: "ipfs.infura.io",
-  port: 5001,
-  protocol: "https",
-  headers: {
-    authorization: auth,
-  },
-});
+
 const fetchContract = (signerOrProvider) =>
   new ethers.Contract(MarketAddress, MarketAddressABI, signerOrProvider);
 export const NFTContext = React.createContext();
@@ -86,7 +71,6 @@ export const NFTProvider = ({ children }) => {
         body: formData,
       });
       const { url } = await response.json();
-      console.log("url in server", url);
       return url;
     } catch (error) {
       console.log("Error uploading file to IPFS: ", error);
@@ -103,10 +87,15 @@ export const NFTProvider = ({ children }) => {
       description,
       image: fileUrl,
     });
-    console.log("data in client", data);
     try {
-      const added = await client.add(data);
-      const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
+      const response = await fetch("/api/create-nft", {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const { url } = await response.json();
       await createSale(url, price);
       router.push("/");
     } catch (error) {

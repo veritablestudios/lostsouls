@@ -24,19 +24,15 @@ export default async function handler(req, res) {
     return;
   }
   try {
-    console.log("req.body", req.body);
     const { name, description, image } = req.body;
     console.log("name", name, "description", description, "image", image);
-    const data = {
+    const data = JSON.stringify({
       name,
       description,
       image,
-    };
-
-    console.log("data in server", data);
-    const added = await client.add(JSON.stringify(data));
+    });
+    const added = await client.add(data);
     const url = `${IPFS_DEDICATED_GATEWAY_SUBDOMAIN}/ipfs/${added.path}`;
-    console.log("url", url);
     res.status(200).json({ url });
   } catch (error) {
     console.log(error);
