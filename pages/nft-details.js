@@ -201,7 +201,10 @@ const NFTDetails = () => {
               </div>
             </div>
           }
-          handleClose={() => setPaymentModal(false)}
+          //don't close modal on click
+          handleClose={() => {
+            alert("Please wait for the transaction to complete");
+          }}
         />
       )}
       {successModal && (
@@ -238,7 +241,7 @@ const NFTDetails = () => {
               />
             </div>
           }
-          handleClose={() => setSuccessModal(false)}
+          handleClose={() => router.push("/")}
         />
       )}
     </div>
