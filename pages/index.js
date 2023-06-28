@@ -19,14 +19,14 @@ const Home = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    fetchNFTs().then((items) => {
-      const sortedNfts = [...items];
-      sortedNfts.sort((a, b) => b.tokenId - a.tokenId);
-      setNfts(sortedNfts);
-      setNftsCopy(sortedNfts);
+    const fetch = async () => {
+      const nfts = await fetchNFTs();
+      setNfts(nfts);
+      setNftsCopy(nfts);
       setIsLoading(false);
-    });
-  }, [nfts]);
+    };
+    fetch();
+  }, [nftsCopy?.length, fetchNFTs]);
 
   useEffect(() => {
     const sortedNfts = [...nfts];
