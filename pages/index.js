@@ -26,7 +26,7 @@ const Home = () => {
       setNftsCopy(sortedNfts);
       setIsLoading(false);
     });
-  }, []);
+  }, [nfts]);
 
   useEffect(() => {
     const sortedNfts = [...nfts];
