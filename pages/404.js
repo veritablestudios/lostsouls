@@ -19,9 +19,9 @@ export default function Custom404() {
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Button
-            btnName="&larr; go back"
+            btnName="&larr; go home"
             classStyles="rounded-xl"
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
           />
           <a href="" className="text-sm font-semibold text-white font-poppins">
             contact support <span aria-hidden="true">&rarr;</span>
