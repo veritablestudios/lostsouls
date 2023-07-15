@@ -1,9 +1,6 @@
 import { Button } from "../components";
-import { useRouter } from "next/router";
 
 export default function Custom404() {
-  const router = useRouter();
-
   return (
     <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
@@ -18,11 +15,9 @@ export default function Custom404() {
           reasons. You can get to other sections of the site by using the menu.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Button
-            btnName="&larr; go home"
-            classStyles="rounded-xl"
-            onClick={() => router.push("/")}
-          />
+          <a href="/">
+            <Button btnName="&larr; go home" classStyles="rounded-xl" />
+          </a>
           <a href="" className="text-sm font-semibold text-white font-poppins">
             contact support <span aria-hidden="true">&rarr;</span>
           </a>
