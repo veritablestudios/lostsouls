@@ -39,6 +39,18 @@ contract NFTMarketplace is ERC721URIStorage {
     constructor() ERC721("Lost Souls", "SOUL") { 
         owner = payable(msg.sender); 
     } 
+
+    function updateListingPrice(uint _listingPrice) public payable {
+        require(
+            owner == msg.sender,
+            "Only marketplace owner can update the listing price"
+        );
+        listingPrice = _listingPrice;
+    }
+
+    function getListingPrice() public view returns (uint256) {
+        return listingPrice;
+    }
  
     function createToken( 
         string memory tokenURI, 
